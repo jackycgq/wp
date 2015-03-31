@@ -46,7 +46,7 @@ Template Name: 下载页面
 				<a href="<?php echo $post->guid; ?>" title="<?php echo $post->post_title; ?>" target="_blank"><?php echo sprintf(__('去%1$s看看关于『 %2$s 』的详细介绍文章>>','tinection'),get_bloginfo('name'),$post->post_title); ?></a>
 			</div>
 			<div class="declaration">
-			<p><?php _e('本站所刊载内容均为网络上收集整理，包括但不限于代码、应用程序、影音资源、电子书籍资料等，并且以研究交流为目的，所有仅供大家参考、学习，不存在任何商业目的与商业用途。若您使用开源的软件代码，请遵守相应的开源许可规范和精神，若您需要使用非免费的软件或服务，您应当购买正版授权并合法使用。如果你下载此文件，表示您同意只将此文件用于参考、学习使用而非任何其他用途。','tinection'); ?>
+			<p><?php _e('本站所刊载内容均为网络上收集整理，并且以研究交流为目的，所有仅供大家参考、学习，不存在任何商业目的与商业用途。若您使用此书籍，请遵守相应的开源许可规范和精神，如果你下载此文件，表示您同意只将此文件用于参考、学习使用而非任何其他用途。','tinection'); ?>
 			</p>
 			</div>
 		</div>
@@ -60,37 +60,24 @@ Template Name: 下载页面
 				<div class="downld-meta">
 					<span style="color:#1cbdc5"><?php _e('文件列表  ','tinection'); ?></span>
 					<span class="downld-meta-hot"><?php _e('|  热度： ','tinection'); ?><?php echo get_tin_traffic( 'single' , $pid ); ?>&nbsp;℃&nbsp;&nbsp;|</span>
-					<span class="downld-meta-date"><?php _e('  生产日期： ','tinection'); ?><?php echo $post->post_date; ?></span>
+					<span class="downld-meta-date"><?php _e('  上传日期： ','tinection'); ?><?php echo $post->post_date; ?></span>
 				</div>
 				<div class="downldlinks sg-dl">
 					<div class="downldlinks-inner" pid="<?php echo $pid; ?>" uid = "<?php echo $uid; ?>">
 						<?php tin_dl_page_res_inner($pid,$uid); ?>
 					</div>
-					<p style="color:#f00;margin-top:20px;"><?php _e('如果您暂时不需或无法下载，您也可以邮件发送下载链接(收费资源除外)：','tinection'); ?></p>
+					<!--<p style="color:#f00;margin-top:20px;"><?php /*_e('如果您暂时不需或无法下载，您也可以邮件发送下载链接(收费资源除外)：','tinection'); */?></p>
 					<div class="down-mail">
-						<span class="dl-mail" pid="<?php echo $post->ID; ?>">
-							<input type="text" class="mail-dl" placeholder="<?php _e('你的邮件地址','tinection'); ?>" />
-							<button type="button" class="mail-dl-btn"><?php _e('下 载','tinection'); ?></button>
+						<span class="dl-mail" pid="<?php /*echo $post->ID; */?>">
+							<input type="text" class="mail-dl" placeholder="<?php /*_e('你的邮件地址','tinection'); */?>" />
+							<button type="button" class="mail-dl-btn"><?php /*_e('下 载','tinection'); */?></button>
 						</span>
 						<div class="dl-terms">
 							<p class="dl-msg"></p>
-							<input type="checkbox" name="dl-terms" id="dl-terms-chk" /><?php _e('我同意','tinection'); ?>&nbsp;<a href="<?php bloginfo('url'); echo'/copyright'; ?>" title="" target="_blank"><?php _e('本站条款','tinection'); ?></a><?php _e('并愿意接收包含最新文章的订阅邮件。','tinection'); ?>
+							<input type="checkbox" name="dl-terms" id="dl-terms-chk" /><?php /*_e('我同意','tinection'); */?>&nbsp;<a href="<?php /*bloginfo('url'); echo'/copyright'; */?>" title="" target="_blank"><?php /*_e('本站条款','tinection'); */?></a><?php /*_e('并愿意接收包含最新文章的订阅邮件。','tinection'); */?>
 							<div class="dl-terms-des"></div>
 						</div>		
-					</div>
-				</div>
-			</div>
-			<div class="downmid-ad">
-				<div class="downmid-ad-top">
-					<span><a href="http://wpa.qq.com/msgrd?v=3&uin=813920477&site=qq&menu=yes" title="<?php _e('联系站长','tinection'); ?>"><?php _e('联系站长','tinection'); ?></a>&nbsp;&nbsp;
-					<span>|&nbsp;&nbsp;<a href="http://www.zhiyanblog.com/newsletter?action=subscribe" rel="no-follow" title="<?php _e('订阅','tinection'); ?><?php bloginfo('name'); ?><?php _e('最新文章','tinection'); ?>"><?php _e('订阅本站','tinection'); ?></a>&nbsp;&nbsp;&nbsp;|</span>
-					<span>&nbsp;&nbsp;<a href="http://www.zhiyanblog.com/go/aliyun" title="<?php _e('快速、稳定阿里云主机推荐','tinection'); ?>" target="_blank"><?php _e('使用阿里云主机','tinection'); ?></a>&nbsp;&nbsp;&nbsp;|</span>
-					<span>&nbsp;&nbsp;<a href="http://www.zhiyanblog.com/go/qiniu" title="<?php _e('七牛云存储加速网站','tinection'); ?>" target="_blank"><?php _e('用七牛加速网站','tinection'); ?></a></span>
-				</div>
-				<div class="downmid-ad-btm">
-				<!-- ad 250x250 -->
-				<?php $dlad1=ot_get_option('dlad1');if (!empty($dlad1)) {echo ot_get_option('dlad1');}?>
-				<!-- /.ad 250x250 -->
+					</div>-->
 				</div>
 			</div>
 			<div class="clr clear"></div>
@@ -102,7 +89,7 @@ Template Name: 下载页面
 				<a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>" target="_blank"><?php echo sprintf(__('去%1$s看看最新文章或者尝试搜索功能','tinection'),get_bloginfo('name')); ?></a>
 			</div>
 			<div class="declaration">
-			<p><?php _e('本站所刊载内容均为网络上收集整理，包括但不限于代码、应用程序、影音资源、电子书籍资料等，并且以研究交流为目的，所有仅供大家参考、学习，不存在任何商业目的与商业用途。若您使用开源的软件代码，请遵守相应的开源许可规范和精神，若您需要使用非免费的软件或服务，您应当购买正版授权并合法使用。如果你下载此文件，表示您同意只将此文件用于参考、学习使用而非任何其他用途。','tinection'); ?>
+			<p><?php _e('本站所刊载内容均为网络上收集整理，并且以研究交流为目的，所有仅供大家参考、学习，不存在任何商业目的与商业用途。如果你下载此文件，表示您同意只将此文件用于参考、学习使用而非任何其他用途。','tinection'); ?>
 			</p>
 			</div>
 		</div>
@@ -117,11 +104,9 @@ Template Name: 下载页面
 		</div>
 		<div class="downbtm">
 			<div class="use-des">
-			<p><?php _e('如果您发现本文件已经失效不能下载，请联系站长修正！','tinection'); ?></p>
-			<p><?php _e('本站提供的资源多数为百度网盘下载，对于大文件，你需要安装百度云客户端才能下载！','tinection'); ?></p>
-			<p><?php _e('部分文件引用的官方或者非网盘类他站下载链接，你可能需要使用迅雷、BT等下载工具下载！','tinection'); ?></p>
-			<p><?php _e('本站推荐的资源均经由站长检测或者个人发布，不包含恶意软件病毒代码等，如果你发现此类问题，请向站长举报！','tinection'); ?></p>
-			<p><?php _e('本站仅提供文件的免费下载服务，如果你对代码程序软件的使用有任何疑惑，请留意相关网站论坛。对于本站个人发布的资源，站长会提供有限的帮助！','tinection'); ?></p>
+			<p><?php _e('如果您发现本文件已经失效不能下载，请联系站长管理员修正！','tinection'); ?></p>
+			<p><?php _e('本站推荐的资源均经由站长检测或者个人发布，不包含恶意软件病毒等，如果你发现此类问题，请向站长举报！','tinection'); ?></p>
+			<p><?php _e('本站仅提供文件的免费下载服务，如果你对使用有任何疑惑，请留意相关网站论坛！','tinection'); ?></p>
 			</div>
 			<div class="downbtm-ad">
 				<div class="downbtm-ad-left banner">

@@ -31,7 +31,7 @@
 					<span><i class="fa fa-edit"></i>&nbsp;<a href="<?php echo tin_get_user_url('post').'&action=new'; ?>" title="<?php _e('发布文章','tinection'); ?>"><?php _e('发布文章','tinection'); ?></a></span>
 					<span><i class="fa fa-heart"></i>&nbsp;<a href="<?php echo tin_get_user_url('collect'); ?>" title="<?php _e('我的收藏','tinection'); ?>"><?php _e('我的收藏','tinection'); ?></a></span>
 					<span><i class="fa fa-envelope"></i>&nbsp;<a href="<?php echo tin_get_user_url('message'); ?>" title="<?php _e('站内消息','tinection'); ?>"><?php _e('站内消息','tinection'); ?><?php if($unread>0) echo '('.$unread.')'; ?></a></span>
-					<span><i class="fa fa-cny"></i>&nbsp;<a href="<?php echo tin_get_user_url('credit'); ?>" title="<?php _e('我的积分','tinection'); ?>"><?php _e('积分查询','tinection'); ?></a></span>
+					<!--<span><i class="fa fa-cny"></i>&nbsp;<a href="<?php /*echo tin_get_user_url('credit'); */?>" title="<?php /*_e('我的积分','tinection'); */?>"><?php /*_e('积分查询','tinection'); */?></a></span>-->
 					<span><i class="fa fa-cog"></i>&nbsp;<a href="<?php echo tin_get_user_url('profile'); ?>" title="<?php _e('编辑资料','tinection'); ?>"><?php _e('编辑资料','tinection'); ?></a></span>
 					<span><i class="fa fa-sign-out"></i>&nbsp;<a href="<?php if(is_singular()){echo wp_logout_url( get_permalink() ); }else{echo wp_logout_url(get_bloginfo('url'));} ?>" title="<?php _e('注销登录','tinection'); ?>"><?php _e('注销登录','tinection'); ?></a></span>
 				</div>

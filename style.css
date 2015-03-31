@@ -111,7 +111,7 @@ article h2,article h3{text-transform: capitalize;}
 .site_loading{background:#f00;height:2px;position:absolute;z-index:99999;top: 0;}
 
 /* Focus us */
-#focus-us{display: inline-block;float: right;line-height: 80px;font-size: 16px;margin: 0 5px;padding:0 25px 0 10px;cursor: pointer;position:relative;color: #999999;}
+#focus-us{display: none;visibility:hidden;float: right;line-height: 80px;font-size: 16px;margin: 0 5px;padding:0 25px 0 10px;cursor: pointer;position:relative;color: #999999;}
 #focus-us:before{-webkit-font-smoothing: antialiased;content: "\f0d7";display: inline-block;font: normal 8px/80px FontAwesome;position: absolute;right: 12px;vertical-align: text-bottom;}
 #nav-scroll.tofix #focus-us,#nav-scroll.tofix #focus-us:before{line-height: 60px;}
 #focus-us:hover,#focus-us:focus{background:#fff;}
@@ -893,8 +893,8 @@ a#al_expand_collapse:after{content: "";}
 #footer-widgets .widget ::selection{color:#fff !important;}
 #footer-wrap {background:#363d4d;margin-bottom:0; margin-top:0;position:relative; /*min-height: 200px;*/}
 .layout-wrap {margin:auto; max-width:1200px; position:relative; width:100%; overflow: hidden;padding:20px 0;border-top:1px solid rgba(255,255,255,0.08)}
-#footer-nav-left {width: 50%; float: left; overflow: hidden; height: 45px;}
-#footer-nav-right {width: 46%; float: right; overflow: hidden;}
+#footer-nav-left {width: 50%; float: left; overflow: hidden;}
+#footer-nav-right {width: 46%; float: right; overflow: hidden;visibility: hidden;display: none;}
 #footermenu {overflow: hidden; padding: 2px 0;}
 #footer-info { padding:20px 0 25px;}
 #footer-nav-wrap { position:relative; width:100%; left:0; bottom:0;  background:#363d4d;}
@@ -902,7 +902,7 @@ a#al_expand_collapse:after{content: "";}
 #footer-nav-links li { float:left; margin-right:10px; line-height: 16px;}
 #footer-nav-links a {color:#737f99; text-decoration: none;-webkit-transition: color .2s linear;-moz-transition: color .2s linear;-ms-transition: color .2s linear;-o-transition:  color .2s linear;transition: color .2s linear;}
 #footer-nav-links a:hover ,#footer-copyright a:hover {border-bottom:1px dotted #f5f5f5; color:#f5f5f5;}
-#footer-copyright {margin-top:4px; font-size:12px;color:#737f99; line-height: 16px; padding: 2px 0;}
+#footer-copyright {margin-top:4px; font-size:12px;color:#737f99; line-height: 16px; padding: 2px 0;display: none;visibility: hidden}
 #footer-copyright::selection,#footer-copyright a::selection {color:#fff;}
 #footer-copyright a {color:#bbb; text-decoration:none;}
 #footer-widgets { padding:20px 0 25px; overflow:hidden;}
@@ -1371,14 +1371,14 @@ article.col:hover img,article.col-small:hover img,article.home-blog-entry:hover 
 .floatbtn span i a:hover{color:#fff;}
 .floatbtn span:hover {background:rgba(0,0,0,0.6); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000 
 ,endColorstr=#99000000); }
-.floatbtn #qr {position: relative;}
+.floatbtn #qr {position: relative; visibility: hidden;display: none;}
 .floatbtn #qr #floatbtn-qr {width: 130px; height: 155px; padding: 5px; position: absolute; display: none; top: -48px; left: -180px;
 opacity: 1; background: #ddd; border-radius: 5px; border: 3px solid #ddd;}
 .floatbtn #qr #floatbtn-qr-msg {color: #000; font-size: 12px;text-align: center;}
 .floatbtn .bds_more{background: url('') no-repeat!important; background-image:none !important; background-color:rgba(0,0,0,0.2); width:36px; height:36px; color:#fff;display:block; position:relative; margin:5px 0; padding: 0;float: inherit;}
 .floatbtn .bds_more:hover{background:rgba(0,0,0,0.6);}
 .floatbtn .bds_more i, .floatbtn .bds_more i:hover {opacity: 1; color: #fff;}
-.floatbtn #bdshare {float: inherit;}
+.floatbtn #bdshare {float: inherit;visibility: hidden;display: none;}
 .floatbtn a.bds_more:before{content: "\f1e0";font: normal normal normal 20px/36px FontAwesome;color: #fff;text-align: center;width: 36px;display: block;}
 
 /* Lightbox
@@ -1623,7 +1623,7 @@ a.btnhref:after{content:"" !important;}
 .dl-article-title a:hover{text-decoration: underline;}
 .declaration,.use-des{border: 1px solid #DDDDDD;padding: 10px;line-height:18px;font-size:12px;margin:5px 0 10px;}
 .downmid{margin-bottom: 10px;}
-.downld{width:49.5%;float:left;}
+.downld{width:100%;float:left;}
 .downld-meta{margin-top: 10px;background: #EDF5FC;border: 1px solid #AACCEE;padding: 5px 5px 5px 10px;font-size:12px;line-height:20px;color:#888;}
 .downldlinks{text-align:center;border: 1px solid #AACCEE;border-top:0;padding:20px 10px;margin:0;}
 .downldlinks h4{text-align:left;margin:5px 0;}

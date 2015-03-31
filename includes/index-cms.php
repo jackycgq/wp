@@ -15,9 +15,10 @@
 ?>
 <div class="container two-col-container cms-bar">
 <div id="main-wrap-left">
+<?php echo do_shortcode("[hopos id='1']"); ?>
 <?php get_template_part('includes/stickys'); ?>
-<?php 
-	$args=array(  
+<?php
+	$args=array(
 		'orderby' => 'id',  
 		'order' => 'ASC',
 		'exclude' => ot_get_option('cmsundisplaycats')

@@ -34,7 +34,6 @@ $tabs = array(
 		'post' => __('文章','tinection')."($posts_count)",
 		'comment' => __('评论','tinection')."($comments_count)",
 		'collect' => __('收藏','tinection')."($collects_count)",
-		'credit' => __('积分','tinection')."($credit)",
 		'message' => __('消息','tinection'),
 		'profile' => __('资料','tinection'),
 );
@@ -1099,117 +1098,117 @@ if( $get_tab=='profile' ) {
 	</div>
 	
 </form>
-
+<!--
 <form id="info-more-form" class="form-horizontal" role="form" method="post">
 	<input type="hidden" name="update" value="info-more">
-	<input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce( 'check-nonce' );?>">
+	<input type="hidden" name="_wpnonce" value="<?php /*echo wp_create_nonce( 'check-nonce' );*/?>">
 			<div class="page-header">
-				<h3 id="info"><?php _e('扩展资料','tin');?> <small><?php _e('社会化信息等','tin');?></small></h>
+				<h3 id="info"><?php /*_e('扩展资料','tin');*/?> <small><?php /*_e('社会化信息等','tin');*/?></small></h>
 			</div>
 	<div class="form-group">
-		<label class="col-sm-3 control-label"><?php _e('新浪微博','tin');?></label>
+		<label class="col-sm-3 control-label"><?php /*_e('新浪微博','tin');*/?></label>
 		<div class="col-sm-9">
-			<input type="text" class="form-control" id="tin_sina_weibo" name="tin_sina_weibo" value="<?php echo $user_info->tin_sina_weibo;?>">
-			<span class="help-block"><?php _e('请填写新浪微博账号','tin');?></span>
+			<input type="text" class="form-control" id="tin_sina_weibo" name="tin_sina_weibo" value="<?php /*echo $user_info->tin_sina_weibo;*/?>">
+			<span class="help-block"><?php /*_e('请填写新浪微博账号','tin');*/?></span>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label class="col-sm-3 control-label"><?php _e('腾讯微博','tin');?></label>
+		<label class="col-sm-3 control-label"><?php /*_e('腾讯微博','tin');*/?></label>
 		<div class="col-sm-9">
-			<input type="text" class="form-control" id="tin_qq_weibo" name="tin_qq_weibo" value="<?php echo $user_info->tin_qq_weibo;?>">
-			<span class="help-block"><?php _e('请填写腾讯微博账号','tin');?></span>
+			<input type="text" class="form-control" id="tin_qq_weibo" name="tin_qq_weibo" value="<?php /*echo $user_info->tin_qq_weibo;*/?>">
+			<span class="help-block"><?php /*_e('请填写腾讯微博账号','tin');*/?></span>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label class="col-sm-3 control-label"><?php _e('Twitter','tin');?></label>
+		<label class="col-sm-3 control-label"><?php /*_e('Twitter','tin');*/?></label>
 		<div class="col-sm-9">
-			<input type="text" class="form-control" id="tin_twitter" name="tin_twitter" value="<?php echo $user_info->tin_twitter;?>">
-			<span class="help-block"><?php _e('请填写Twitter账号','tin');?></span>
+			<input type="text" class="form-control" id="tin_twitter" name="tin_twitter" value="<?php /*echo $user_info->tin_twitter;*/?>">
+			<span class="help-block"><?php /*_e('请填写Twitter账号','tin');*/?></span>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label class="col-sm-3 control-label"><?php _e('Goolge +','tin');?></label>
+		<label class="col-sm-3 control-label"><?php /*_e('Goolge +','tin');*/?></label>
 		<div class="col-sm-9">
-			<input type="text" class="form-control" id="tin_googleplus" name="tin_googleplus" value="<?php echo $user_info->tin_googleplus;?>">
-			<span class="help-block"><?php _e('请填写Google+主页的完整Url','tin');?></span>
+			<input type="text" class="form-control" id="tin_googleplus" name="tin_googleplus" value="<?php /*echo $user_info->tin_googleplus;*/?>">
+			<span class="help-block"><?php /*_e('请填写Google+主页的完整Url','tin');*/?></span>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label class="col-sm-3 control-label"><?php _e('微信二维码','tin');?></label>
+		<label class="col-sm-3 control-label"><?php /*_e('微信二维码','tin');*/?></label>
 		<div class="col-sm-9">
-			<input type="text" class="form-control" id="tin_weixin" name="tin_weixin" value="<?php echo $user_info->tin_weixin;?>">
-			<span class="help-block"><?php _e('请填写微信账号二维码图片的Url地址','tin');?></span>
+			<input type="text" class="form-control" id="tin_weixin" name="tin_weixin" value="<?php /*echo $user_info->tin_weixin;*/?>">
+			<span class="help-block"><?php /*_e('请填写微信账号二维码图片的Url地址','tin');*/?></span>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label class="col-sm-3 control-label"><?php _e('支付宝收款二维码','tin');?></label>
+		<label class="col-sm-3 control-label"><?php /*_e('支付宝收款二维码','tin');*/?></label>
 		<div class="col-sm-9">
-			<input type="text" class="form-control" id="tin_donate" name="tin_donate" value="<?php echo $user_info->tin_donate;?>">
-			<span class="help-block"><?php _e('请填写支付宝收款二维码图片的Url地址','tin');?></span>
+			<input type="text" class="form-control" id="tin_donate" name="tin_donate" value="<?php /*echo $user_info->tin_donate;*/?>">
+			<span class="help-block"><?php /*_e('请填写支付宝收款二维码图片的Url地址','tin');*/?></span>
 		</div>
 	</div>
 	
 	<div class="form-group">
 		<div class="col-sm-offset-3 col-sm-9">
-			<button type="submit" class="btn btn-primary"><?php _e('提交资料','tin');?></button>
+			<button type="submit" class="btn btn-primary"><?php /*_e('提交资料','tin');*/?></button>
 		</div>
 	</div>
 	
-</form>
+</form>-->
 
 
 <?php if($current_user&&$current_user->ID==$curauth->ID) { ?>
-<form id="aff-form" class="form-horizontal" role="form">
+<!--<form id="aff-form" class="form-horizontal" role="form">
 	<div class="page-header">
-		<h3 id="open"><?php _e('推广链接','tin');?> <small><?php _e('可赚取积分','tin');?></small></h>
+		<h3 id="open"><?php /*_e('推广链接','tin');*/?> <small><?php /*_e('可赚取积分','tin');*/?></small></h>
 	</div>
 	<div class="form-group">
-		<label for="aff" class="col-sm-3 control-label"><?php _e('推广链接','tin');?></label>
+		<label for="aff" class="col-sm-3 control-label"><?php /*_e('推广链接','tin');*/?></label>
 		<div class="col-sm-9">
-			<input type="text" class="form-control tin_aff_url" value="<?php echo get_bloginfo('url').'/?aff='.$current_user->ID; ?>">
+			<input type="text" class="form-control tin_aff_url" value="<?php /*echo get_bloginfo('url').'/?aff='.$current_user->ID; */?>">
 		</div>
 	</div>
-</form>
+</form>-->
 <?php } ?>
 <?php if( $qq || $weibo ) { ?>
-<form id="open-form" class="form-horizontal" role="form" method="post">
+<!--<form id="open-form" class="form-horizontal" role="form" method="post">
 			<div class="page-header">
-				<h3 id="open"><?php _e('绑定账号','tin');?> <small><?php _e('可用于直接登录','tin');?></small></h>
+				<h3 id="open"><?php /*_e('绑定账号','tin');*/?> <small><?php /*_e('可用于直接登录','tin');*/?></small></h>
 			</div>
 			
-	<?php if($qq){ ?>
+	<?php /*if($qq){ */?>
 		<div class="form-group">
-			<label class="col-sm-3 control-label"><?php _e('QQ账号','tin');?></label>
+			<label class="col-sm-3 control-label"><?php /*_e('QQ账号','tin');*/?></label>
 			<div class="col-sm-9">
-		<?php  if(tin_is_open_qq($user_info->ID)) { ?>
-			<span class="help-block"><?php _e('已绑定','tin');?> <a href="<?php echo home_url('/?connect=qq&action=logout'); ?>"><?php _e('点击解绑','tin');?></a></span>
-			<?php echo tin_get_avatar( $user_info->ID , '100' , 'qq' ); ?>
-		<?php }else{ ?>
-			<a class="btn btn-primary" href="<?php echo home_url('/?connect=qq&action=login&redirect='.urlencode(get_edit_profile_url())); ?>"><?php _e('绑定QQ账号','tin');?></a>
-		<?php } ?>
+		<?php /* if(tin_is_open_qq($user_info->ID)) { */?>
+			<span class="help-block"><?php /*_e('已绑定','tin');*/?> <a href="<?php /*echo home_url('/?connect=qq&action=logout'); */?>"><?php /*_e('点击解绑','tin');*/?></a></span>
+			<?php /*echo tin_get_avatar( $user_info->ID , '100' , 'qq' ); */?>
+		<?php /*}else{ */?>
+			<a class="btn btn-primary" href="<?php /*echo home_url('/?connect=qq&action=login&redirect='.urlencode(get_edit_profile_url())); */?>"><?php /*_e('绑定QQ账号','tin');*/?></a>
+		<?php /*} */?>
 			</div>
 		</div>
-	<?php } ?>
+	<?php /*} */?>
 
-	<?php if($weibo){ ?>
+	<?php /*if($weibo){ */?>
 		<div class="form-group">
-			<label class="col-sm-3 control-label"><?php _e('微博账号','tin');?></label>
+			<label class="col-sm-3 control-label"><?php /*_e('微博账号','tin');*/?></label>
 			<div class="col-sm-9">
-		<?php if(tin_is_open_weibo($user_info->ID)) { ?>
-			<span class="help-block"><?php _e('已绑定','tin');?> <a href="<?php echo home_url('/?connect=weibo&action=logout'); ?>"><?php _e('点击解绑','tin');?></a></span>
-			<?php echo tin_get_avatar( $user_info->ID , '100' , 'weibo' ); ?>
-		<?php }else{ ?>
-			<a class="btn btn-danger" href="<?php echo home_url('/?connect=weibo&action=login&redirect='.urlencode(get_edit_profile_url())); ?>"><?php _e('绑定微博账号','tin');?></a>
-		<?php } ?>
+		<?php /*if(tin_is_open_weibo($user_info->ID)) { */?>
+			<span class="help-block"><?php /*_e('已绑定','tin');*/?> <a href="<?php /*echo home_url('/?connect=weibo&action=logout'); */?>"><?php /*_e('点击解绑','tin');*/?></a></span>
+			<?php /*echo tin_get_avatar( $user_info->ID , '100' , 'weibo' ); */?>
+		<?php /*}else{ */?>
+			<a class="btn btn-danger" href="<?php /*echo home_url('/?connect=weibo&action=login&redirect='.urlencode(get_edit_profile_url())); */?>"><?php /*_e('绑定微博账号','tin');*/?></a>
+		<?php /*} */?>
 			</div>
 		</div>
-	<?php } ?>
-</form>
+	<?php /*} */?>
+</form>-->
 <?php } ?>
 <form id="pass-form" class="form-horizontal" role="form" method="post">
 	<input type="hidden" name="update" value="pass">
