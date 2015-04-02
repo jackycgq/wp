@@ -16,6 +16,8 @@
 <div class="container two-col-container cms-bar">
 <div id="main-wrap-left">
 <?php echo do_shortcode("[hopos id='1']"); ?>
+<div class="hp_header basic">最受关注图书棒</div>
+<?php echo do_shortcode('[carousel-horizontal-posts-content-slider]'); ?>
 <?php get_template_part('includes/stickys'); ?>
 <?php
 	$args=array(

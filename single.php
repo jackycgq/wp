@@ -62,7 +62,7 @@
 				$url = explode('|',$url);
 				$link = isset($url[0]) ? $url[0]:'';
 				$title = isset($url[1]) ? $url[1]:'';
-			?><a href="<?php echo $link; ?>" title="<?php echo $title; ?>" target="_blank"><?php $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large'); $url = $large_image_url[0]; $url = tin_thumb_source($url,800,300); ?><img src="<?php echo $url; ?>" /></a>
+			?><a href="<?php echo $link; ?>" title="<?php echo $title; ?>" target="_blank"><?php $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large'); $url = $large_image_url[0];  ?><img src="<?php echo $url; ?>" /></a>
 			<div id="singlethumb-banner"><?php echo ot_get_option('singlethumbad'); ?></div>
 			<?php } ?>
 		</div>

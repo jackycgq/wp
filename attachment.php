@@ -52,7 +52,7 @@
 		<!-- Single Activity -->
 		<div class="sg-act">
 			<?php get_template_part('includes/like_collect'); ?>
-			<?php get_template_part('includes/bdshare'); ?>
+			<?php /*get_template_part('includes/bdshare'); */?>
 		</div>
 		<!-- /.Single Activity -->		
 
@@ -63,7 +63,7 @@
 		<?php }?>
 
 		<!-- Single Author Info -->
-		<?php get_template_part('includes/author-info'); ?>
+		<?php /*get_template_part('includes/author-info'); */?>
 		<!-- /.Single Author Info -->	
 		</div>
 		<!-- /.Content -->

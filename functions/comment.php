@@ -53,10 +53,18 @@ global $commentcount,$wpdb, $post;
 	<div class="comment-main">
 		<?php if ( $comment->comment_approved == '0' ) : ?>
 			<span style="color:#C00; font-style:inherit; margin-top:5px; line-height:25px;"><?php $cpid = $comment->comment_parent; if($cpid!=0)echo '@'; comment_author_link($cpid) ?><?php _e('您的评论正在等待审核中...','tinection'); ?></span>
-			<br />			
+			<br />
 		<?php endif; ?>
 		<?php if ( $comment->comment_approved == '1' ) : ?>
-		<?php comment_text() ?>
+		    <div id="dir_short_<?php echo $comment->comment_ID;?>">
+                <?php echo (get_comment_excerpt($comment->comment_ID)); ?>
+                <a href="javascript:$('#dir_short_<?php echo $comment->comment_ID;?>').hide();$('#dir_full_<?php echo $comment->comment_ID;?>').show();void(0);">更多</a>
+            </div>
+
+            <div id="dir_full_<?php echo $comment->comment_ID;?>" style="display: none;">
+                <?php comment_text(); ?>
+                <a href="javascript:$('#dir_full_<?php echo $comment->comment_ID;?>').hide();$('#dir_short_<?php echo $comment->comment_ID;?>').show();void(0);">收起</a>
+            </div>
 		<?php endif; ?>
 		<div class="comment-author">
 			<div class="comment-info">
