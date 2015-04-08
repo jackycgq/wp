@@ -180,7 +180,7 @@ class TinTabs extends WP_Widget {
                             $length = 55;
                             $text = $comment_excerpt;
                             if(mb_strlen($comment_excerpt, 'utf8') > $length)
-                            $text =  mb_substr($text, 0, $length, 'utf8').'...';
+                            $text = mb_substr($text, 0, $length, 'utf8').'...';
 							$str=explode(' ',$comment_excerpt); $comment_excerpt=implode(' ',array_slice($str,0,11)); if(count($str) > 11 && substr($comment_excerpt,-1)!='.') $comment_excerpt.='...' ?>					
 							<div class="tab-item-comment"><span class="arrow-poptop"></span><a href="<?php echo esc_url(get_permalink($comment->comment_post_ID)); ?>"><i><?php echo $comment->comment_author; ?></i><?php _e('说: ','tinection'); ?><?php echo $text; ?></a><div class="tab-cmt-votes"><span class="cmt-vote">
 					<?php $c_name = 'tin_comment_vote_'.$comment->comment_ID;$cookie = isset($_COOKIE[$c_name])?$_COOKIE[$c_name]:'';?>
