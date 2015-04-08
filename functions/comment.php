@@ -56,8 +56,12 @@ global $commentcount,$wpdb, $post;
 			<br />
 		<?php endif; ?>
 		<?php if ( $comment->comment_approved == '1' ) : ?>
+
+            <?php $length = 120;
+                  $comment_ex = get_comment_excerpt($comment->comment_ID);
+            if(mb_strlen($comment_ex, 'utf8') > $length) {?>
 		    <div id="dir_short_<?php echo $comment->comment_ID;?>">
-                <?php echo (get_comment_excerpt($comment->comment_ID)); ?>
+                <?php echo (mb_substr(get_comment_excerpt($comment->comment_ID), 0, 120, 'utf8').'...'); ?>
                 <a href="javascript:$('#dir_short_<?php echo $comment->comment_ID;?>').hide();$('#dir_full_<?php echo $comment->comment_ID;?>').show();void(0);">更多</a>
             </div>
 
@@ -65,6 +69,11 @@ global $commentcount,$wpdb, $post;
                 <?php comment_text(); ?>
                 <a href="javascript:$('#dir_full_<?php echo $comment->comment_ID;?>').hide();$('#dir_short_<?php echo $comment->comment_ID;?>').show();void(0);">收起</a>
             </div>
+            <?php } else {?>
+                <div id="dir_full_<?php echo $comment->comment_ID;?>">
+                    <?php comment_text(); ?>
+                </div>
+            <?php }?>
 		<?php endif; ?>
 		<div class="comment-author">
 			<div class="comment-info">
