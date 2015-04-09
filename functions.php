@@ -2062,4 +2062,157 @@ function tin_alipay_post_gather($alipay_email,$amount=10,$hide=0){
 	return $html;
 }
 
+///////////////////////////////////////////////////////////////
+// SAVE COMMENT META
+// only found this hook to process the POST
+add_filter( 'comment_edit_redirect',  'save_comment_wpse_82317', 10, 2 );
+
+// META BOX
+add_action( 'add_meta_boxes', 'add_custom_box_wpse_82317' );
+
+/**
+ * Save Custom Comment Field
+ * This hook deals with the redirect after saving, we are only taking advantage of it
+ */
+function save_comment_wpse_82317( $location, $comment_id )
+{
+    // Not allowed, return regular value without updating meta
+    if ( !wp_verify_nonce( $_POST['noncename_wpse_82317'], plugin_basename( __FILE__ ) )
+        && !isset( $_POST['meta_comment_field'] )
+    )
+        return $location;
+
+    // Update meta
+    update_comment_meta(
+        $comment_id,
+        'meta_comment_field',
+        sanitize_text_field( $_POST['meta_comment_field'] )
+    );
+
+    // Return regular value after updating
+    return $location;
+}
+
+/**
+ * Add Comment meta box
+ */
+function add_custom_box_wpse_82317()
+{
+    add_meta_box(
+        'section_id_wpse_82317',
+        __( '最佳书评奖 投票支持数' ),
+        'inner_custom_box_wpse_82317',
+        'comment',
+        'normal'
+    );
+}
+
+/**
+ * Render meta box with Custom Field
+ */
+function inner_custom_box_wpse_82317( $comment )
+{
+    // Use nonce for verification
+    wp_nonce_field( plugin_basename( __FILE__ ), 'noncename_wpse_82317' );
+
+    $c_meta = get_comment_meta( $comment->comment_ID, 'meta_comment_field', true );
+    if($c_meta ==""){
+        echo "<input type='text' id='meta_comment_field' name='meta_comment_field' value='",
+        get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true),
+        "' size='25' />";
+    }
+    else{
+        echo "<input type='text' id='meta_comment_field' name='meta_comment_field' value='",
+        esc_attr( $c_meta ),
+        "' size='25' />";
+    }
+
+
+}
+
+
+
+
+// SAVE COMMENT META2
+// only found this hook to process the POST22222222
+add_filter( 'comment_edit_redirect',  'save_comment_wpse_82318', 10, 2 );
+
+// META BOX
+add_action( 'add_meta_boxes', 'add_custom_box_wpse_82318' );
+
+/**
+ * Save Custom Comment Field
+ * This hook deals with the redirect after saving, we are only taking advantage of it
+ */
+function save_comment_wpse_82318( $location, $comment_id )
+{
+    // Not allowed, return regular value without updating meta
+    if ( !wp_verify_nonce( $_POST['noncename_wpse_82318'], plugin_basename( __FILE__ ) )
+        && !isset( $_POST['meta_comment_field2'] )
+    )
+        return $location;
+
+    // Update meta
+    update_comment_meta(
+        $comment_id,
+        'meta_comment_field2',
+        sanitize_text_field( $_POST['meta_comment_field2'] )
+    );
+
+    // Return regular value after updating
+    return $location;
+}
+
+/**
+ * Add Comment meta box
+ */
+function add_custom_box_wpse_82318()
+{
+    add_meta_box(
+        'section_id_wpse_82318',
+        __( '本季度最佳书评奖 第几名？' ),
+        'inner_custom_box_wpse_82318',
+        'comment',
+        'normal'
+    );
+}
+
+/**
+ * Render meta box with Custom Field
+ */
+function inner_custom_box_wpse_82318( $comment )
+{
+    // Use nonce for verification
+    wp_nonce_field( plugin_basename( __FILE__ ), 'noncename_wpse_82318' );
+
+    $c_meta = get_comment_meta( $comment->comment_ID, 'meta_comment_field2', true );
+    echo "<input type='text' id='meta_comment_field2' name='meta_comment_field2' value='",
+    esc_attr( $c_meta ),
+    "' size='25' />";
+
+}
+
+
+
+/////////////////////////////
+add_filter('get_comment_author', 'my_comment_author', 10, 1);
+
+function my_comment_author( $author = '' ) {
+    // Get the comment ID from WP_Query
+
+    $comment = get_comment( $comment_ID );
+
+    if ( empty($comment->comment_author) ) {
+        if (!empty($comment->user_id)){
+            $user=get_userdata($comment->user_id);
+            $author=$user->display_name; // this is the actual line you want to change
+        } else {
+            $author = __('Anonymous');
+        }
+    } else {
+        $author = $comment->comment_author;
+    }
+
+    return $author;
+}
 ?>

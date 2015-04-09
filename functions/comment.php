@@ -90,7 +90,7 @@ global $commentcount,$wpdb, $post;
 				<span class="cmt-vote">
 					<?php $c_name = 'tin_comment_vote_'.$comment->comment_ID;$cookie = isset($_COOKIE[$c_name])?$_COOKIE[$c_name]:'';?>
 					<i class="fa fa-thumbs-o-up <?php if($cookie==1)echo 'voted'; ?>" title="<?php _e('顶一下','tinection'); ?>" data="<?php echo $comment->comment_ID; ?>" data-type="1" data-num="<?php echo (int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true); ?>"><?php echo ' ['.(int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true).']'; ?></i>
-					<i class="fa fa-thumbs-o-down <?php if($cookie==2)echo 'voted'; ?>" title="<?php _e('踩一下','tinection'); ?>" data="<?php echo $comment->comment_ID; ?>" data-type="2" data-num="<?php echo (int)get_comment_meta($comment->comment_ID,'tin_comment_voteno',true); ?>"><?php echo ' ['.(int)get_comment_meta($comment->comment_ID,'tin_comment_voteno',true).']'; ?></i>
+					<!--<i class="fa fa-thumbs-o-down <?php /*if($cookie==2)echo 'voted'; */?>" title="<?php /*_e('踩一下','tinection'); */?>" data="<?php /*echo $comment->comment_ID; */?>" data-type="2" data-num="<?php /*echo (int)get_comment_meta($comment->comment_ID,'tin_comment_voteno',true); */?>"><?php /*echo ' ['.(int)get_comment_meta($comment->comment_ID,'tin_comment_voteno',true).']'; */?></i>-->
 				</span>
 				<!-- edit_comment_link(__('编辑','tinection'));--> 	
 			</div>
