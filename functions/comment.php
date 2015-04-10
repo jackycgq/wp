@@ -88,11 +88,18 @@ global $commentcount,$wpdb, $post;
 					<?php if(is_user_logged_in()){comment_reply_link(array_merge( $args, array('reply_text' => __('回复','tinection'), 'add_below' =>$add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'])));}else{echo '<a rel="nofollow" class="comment-reply-login user-login" href="javascript:">'.__('登录以回复','tinection').'</a>';} ?>
 				</span>
 				<span class="cmt-vote">
-					<?php $c_name = 'tin_comment_vote_'.$comment->comment_ID;$cookie = isset($_COOKIE[$c_name])?$_COOKIE[$c_name]:'';?>
-					<i class="fa fa-thumbs-o-up <?php if($cookie==1)echo 'voted'; ?>" title="<?php _e('顶一下','tinection'); ?>" data="<?php echo $comment->comment_ID; ?>" data-type="1" data-num="<?php echo (int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true); ?>"><?php echo ' ['.(int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true).']'; ?></i>
-					<!--<i class="fa fa-thumbs-o-down <?php /*if($cookie==2)echo 'voted'; */?>" title="<?php /*_e('踩一下','tinection'); */?>" data="<?php /*echo $comment->comment_ID; */?>" data-type="2" data-num="<?php /*echo (int)get_comment_meta($comment->comment_ID,'tin_comment_voteno',true); */?>"><?php /*echo ' ['.(int)get_comment_meta($comment->comment_ID,'tin_comment_voteno',true).']'; */?></i>-->
+
+                    <?php if(is_user_logged_in()){ ?>
+                        <?php $c_name = 'tin_comment_vote_'.$comment->comment_ID;$cookie = isset($_COOKIE[$c_name])?$_COOKIE[$c_name]:'';?>
+                        <i class="fa fa-thumbs-o-up <?php if($cookie==1)echo 'voted'; ?>" title="<?php _e('顶一下','tinection'); ?>" data="<?php echo $comment->comment_ID; ?>" data-type="1" data-num="<?php echo (int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true); ?>"><?php echo ' ['.(int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true).']'; ?></i>
+                    <?php }
+                    else
+                    {
+                        echo '<a rel="nofollow" class="comment-reply-login user-login" href="javascript:">'.__('登录后方可为他/她投上你神圣的一票','tinection').'</a>';
+                    } ?>
+
 				</span>
-				<!-- edit_comment_link(__('编辑','tinection'));--> 	
+				<?php edit_comment_link(__('编辑','tinection'));?>
 			</div>
 		</div>
 	<div class="clear"></div>
@@ -159,13 +166,7 @@ function wp_comment_quicktag() {
 			<span><a href="javascript:SIMPALED.Editor.underline()" rel="external nofollow"  title="'.__('下划线','tinection').'">'.__('下划线','tinection').'</a></span>
 			<span><a href="javascript:SIMPALED.Editor.del()" rel="external nofollow"  title="'.__('删除线','tinection').'">'.__('删除线','tinection').'</a></span>
 			<span><a href="javascript:SIMPALED.Editor.ahref()" rel="external nofollow"  title="'.__('链接','tinection').'">'.__('链接','tinection').'</a></span>
-			<span><a href="javascript:SIMPALED.Editor.img()" rel="external nofollow"  title="'.__('图片','tinection').'">'.__('图片','tinection').'</a></span>
-			<span><a href="javascript:SIMPALED.Editor.code()" rel="external nofollow"  title="'.__('代码','tinection').'">'.__('代码','tinection').'</a></span>
 			<span><a href="javascript:SIMPALED.Editor.quote()" rel="external nofollow"  title="'.__('引用','tinection').'">'.__('引用','tinection').'</a></span>
-			<span><a href="javascript:SIMPALED.Editor.php()" rel="external nofollow"  title="'.__('PHP代码','tinection').'">PHP</a></span>
-			<span><a href="javascript:SIMPALED.Editor.js()" rel="external nofollow"  title="'.__('JavaScript代码','tinection').'">JavaScript</a></span>
-			<span><a href="javascript:SIMPALED.Editor.css()" rel="external nofollow"  title="'.__('CSS代码','tinection').'">CSS</a></span>
-			<span><a href="javascript:SIMPALED.Editor.private()" rel="external nofollow"  title="'.__('私密','tinection').'">'.__('私密','tinection').'</a></span>
 	';
 }
 function private_content($atts, $content = null){

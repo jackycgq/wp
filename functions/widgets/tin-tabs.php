@@ -16,7 +16,7 @@ class TinTabs extends WP_Widget {
 /*  Constructor
 /* ------------------------------------ */
 	function TinTabs() {
-		parent::__construct( false, 'Tin-选项卡列表', array('description' => 'Tinection-以选项卡式显示文章、评论等内容', 'classname' => 'widget_tin_tabs') );;	
+		parent::__construct( false, 'Tin-选项卡列表', array('description' => 'Tinection-以选项卡式显示文章、评论等内容', 'classname' => 'widget_tin_tabs') );;
 	}
 
 /*  Create tabs-nav
@@ -35,7 +35,7 @@ class TinTabs extends WP_Widget {
 		$output .= '</ul>';
 		return $output;
 	}
-	
+
 /*  Widget
 /* ------------------------------------ */
 	public function widget($args, $instance) {
@@ -46,7 +46,7 @@ class TinTabs extends WP_Widget {
 		if($title)
 			$output .= $before_title.$title.$after_title;
 		ob_start();
-		
+
 /*  Set tabs-nav order & output it
 /* ------------------------------------ */
 	$titles = array(
@@ -85,7 +85,7 @@ class TinTabs extends WP_Widget {
 							<div class="thumb-img">
 								<img class="box-hide" src="<?php echo THEME_URI.'/images/image-pending.gif'; ?>" data-original="<?php echo tin_thumb_source($large_image_url[0],125,78,false); ?>" alt="<?php the_title(); ?>" />
 								<span><?php the_article_icon();?></span>
-							</div>								
+							</div>
 							<?php else: ?>
 							<div class="thumb-img">
 								<img class="box-hide" src="<?php echo THEME_URI.'/images/image-pending.gif'; ?>" data-original="<?php $img = catch_first_image();echo tin_thumb_source($img,125,78,false); ?>" alt="<?php the_title(); ?>" />
@@ -95,13 +95,13 @@ class TinTabs extends WP_Widget {
 						</a>
 					</div>
 					<?php } ?>
-					
+
 					<div class="tab-item-inner group">
 						<p class="tab-item-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></p>
 						<?php if($instance['tabs_date']) { ?><span class="tab-item-date"><?php the_time('Y-m-j'); ?></span><?php } ?>&nbsp;
 						<?php if($instance['tabs_category']) { ?><span class="tab-item-category"><?php the_category(' / '); ?></span><?php } ?>
 					</div>
-					
+
 				</li>
 				<?php endwhile; ?>
 			</ul><!--/.tin-tab-->
@@ -109,7 +109,7 @@ class TinTabs extends WP_Widget {
 		<?php } ?>
 
 		<?php if($instance['popular_enable']) { // Popular posts enabled? ?>
-				
+
 			<?php
 				$popular = new WP_Query( array(
 					'post_type'				=> array( 'post' ),
@@ -126,11 +126,11 @@ class TinTabs extends WP_Widget {
 				) );
 			?>
 			<ul id="tab-popular" class="tin-tab group <?php if($instance['popular_thumbs']) { echo 'thumbs-enabled'; } else {echo 'no-pic';} ?>">
-				
+
 				<?php while ( $popular->have_posts() ): $popular->the_post(); ?>
 				<?php $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large'); ?>
 				<li>
-				
+
 					<?php if($instance['popular_thumbs']) { // Thumbnails enabled? ?>
 					<div class="tab-item-thumbnail">
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
@@ -148,53 +148,54 @@ class TinTabs extends WP_Widget {
 						</a>
 					</div>
 					<?php } ?>
-					
+
 					<div class="tab-item-inner group">
 						<p class="tab-item-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></p>
 						<?php if($instance['tabs_date']) { ?><span class="tab-item-date"><?php the_time('Y-m-j'); ?></span><?php } ?>&nbsp;
 						<?php if($instance['tabs_category']) { ?><span class="tab-item-category"><?php the_category(' / '); ?></span><?php } ?>
 					</div>
-					
+
 				</li>
 				<?php endwhile; ?>
 			</ul><!--/.tin-tab-->
-			
+
 		<?php } ?>
 		<?php if($instance['comments_enable']) { // Recent comments enabled? ?>
 
 			<?php $args = array('number'=>$instance["comments_num"],'status'=>'approve','post_status'=>'publish');if(isset($instance['comment_order'])&&$instance['comment_order']=='vote'){$args['orderby']='meta_value_num';$args['meta_key']='tin_comment_voteyes';};$comments = get_comments($args); ?>
-			
+
 			<ul id="tab-comments" class="tin-tab group <?php if($instance['comments_avatars']) { echo 'avatars-enabled'; } else {echo 'no-avatar';} ?>">
 				<?php foreach ($comments as $comment):?>
                 <?php
-                    $c_meta = get_comment_meta( $comment->comment_ID, 'meta_comment_field', true );
-
+                    $c_meta = get_comment_meta( $comment->comment_ID, 'meta_comment_field2', true );
+                    if($c_meta === "on"){
                 ?>
-				<li>
 
-						<?php if($instance['comments_avatars']) { // Avatars enabled? ?>
-						<div class="tab-item-avatar">
-							<?php echo tin_get_avatar( $comment->user_id , '96' , tin_get_avatar_type($comment->user_id) ); ?>
-						</div>
-						<?php } ?>
+                    <li>
+                            <?php if($instance['comments_avatars']) { // Avatars enabled? ?>
+                            <div class="tab-item-avatar">
+                                <?php echo tin_get_avatar( $comment->user_id , '96' , tin_get_avatar_type($comment->user_id) ); ?>
+                            </div>
+                            <?php } ?>
 
-						<div class="tab-item-inner group">
-							<?php
-							$comment_excerpt = preg_replace("'\[private](.*?)\[\/private]'",'***该评论仅父级评论者及管理员可见***',get_comment_excerpt($comment->comment_ID));
-                            $length = 55;
-                            $text = $comment_excerpt;
-                            if(mb_strlen($comment_excerpt, 'utf8') > $length)
-                            $text = mb_substr($text, 0, $length, 'utf8').'...';
-							$str=explode(' ',$comment_excerpt); $comment_excerpt=implode(' ',array_slice($str,0,11)); if(count($str) > 11 && substr($comment_excerpt,-1)!='.') $comment_excerpt.='...' ?>
-							<div class="tab-item-comment"><span class="arrow-poptop"></span><a href="<?php echo esc_url(get_permalink($comment->comment_post_ID)); ?>"><i><?php echo $comment->comment_author; ?></i><?php _e('说: ','tinection'); ?><?php echo $text; ?></a><div class="tab-cmt-votes"><span class="cmt-vote">
-					<?php $c_name = 'tin_comment_vote_'.$comment->comment_ID;$cookie = isset($_COOKIE[$c_name])?$_COOKIE[$c_name]:'';?>
-					<i class="fa fa-thumbs-o-up <?php if($cookie==1)echo 'voted'; ?>" title="<?php _e('顶','tinection'); ?>" data="<?php echo $comment->comment_ID; ?>" data-type="1" data-num="<?php echo (int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true); ?>"><?php echo ' ['.(int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true).']'; ?></i>
-					
-				</span></div></div>
+                            <div class="tab-item-inner group">
+                                <?php
+                                $comment_excerpt = preg_replace("'\[private](.*?)\[\/private]'",'***该评论仅父级评论者及管理员可见***',get_comment_excerpt($comment->comment_ID));
+                                $length = 55;
+                                $text = $comment_excerpt;
+                                if(mb_strlen($comment_excerpt, 'utf8') > $length)
+                                $text = mb_substr($text, 0, $length, 'utf8').'...';
+                                $str=explode(' ',$comment_excerpt); $comment_excerpt=implode(' ',array_slice($str,0,11)); if(count($str) > 11 && substr($comment_excerpt,-1)!='.') $comment_excerpt.='...' ?>
+                                <div class="tab-item-comment"><span class="arrow-poptop"></span><a href="<?php echo esc_url(get_permalink($comment->comment_post_ID)); ?>"><i><?php echo $comment->comment_author; ?></i><?php _e('说: ','tinection'); ?><?php echo $text; ?></a><div class="tab-cmt-votes"><span class="cmt-vote">
+                        <?php $c_name = 'tin_comment_vote_'.$comment->comment_ID;$cookie = isset($_COOKIE[$c_name])?$_COOKIE[$c_name]:'';?>
+                        <i class="fa fa-thumbs-o-up <?php if($cookie==1)echo 'voted'; ?>" title="<?php _e('顶','tinection'); ?>" data="<?php echo $comment->comment_ID; ?>" data-type="1" data-num="<?php echo (int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true); ?>"><?php echo ' ['.(int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true).']'; ?></i>
 
-						</div>
+                    </span></div></div>
 
-				</li>
+                            </div>
+
+                    </li>
+                <?php }?>
 				<?php endforeach; ?>
 			</ul><!--/.tin-tab-->
 
@@ -206,7 +207,7 @@ class TinTabs extends WP_Widget {
 		$output .= $after_widget."\n";
 		echo $output;
 	}
-	
+
 /*  Widget update
 /* ------------------------------------ */
 	public function update($new,$old) {
@@ -283,13 +284,13 @@ class TinTabs extends WP_Widget {
 	.widget .widget-inside .tin-options-tabs hr { margin: 20px 0 10px; }
 	.widget .widget-inside .tin-options-tabs h4 { margin-bottom: 10px; }
 	</style>
-	
+
 	<div class="tin-options-tabs">
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('标题:','tinection'); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($instance["title"]); ?>" />
 		</p>
-		
+
 		<h4><?php _e('近期文章','tinection'); ?></h4>
 		<p>
 			<label for="<?php echo $this->get_field_id('title_latestpost'); ?>"><?php _e('选项卡标题,默认近期文章:','tinection'); ?></label>
@@ -302,16 +303,16 @@ class TinTabs extends WP_Widget {
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('recent_thumbs'); ?>" name="<?php echo $this->get_field_name('recent_thumbs'); ?>" <?php checked( (bool) $instance["recent_thumbs"], true ); ?>>
 			<label for="<?php echo $this->get_field_id('recent_thumbs'); ?>"><?php _e('显示缩略图','tinection'); ?></label>
-		</p>	
+		</p>
 		<p>
 			<label style="width: 55%; display: inline-block;" for="<?php echo $this->get_field_id("recent_num"); ?>"><?php _e('要显示的条目','tinection'); ?></label>
 			<input style="width:20%;" id="<?php echo $this->get_field_id("recent_num"); ?>" name="<?php echo $this->get_field_name("recent_num"); ?>" type="text" value="<?php echo absint($instance["recent_num"]); ?>" size='3' />
 		</p>
 		<p>
 			<label style="width: 100%; display: inline-block;" for="<?php echo $this->get_field_id("recent_cat_id"); ?>"><?php _e('分类:','tinection'); ?></label>
-			<?php wp_dropdown_categories( array( 'name' => $this->get_field_name("recent_cat_id"), 'selected' => $instance["recent_cat_id"], 'show_option_all' => 'All', 'show_count' => true ) ); ?>		
+			<?php wp_dropdown_categories( array( 'name' => $this->get_field_name("recent_cat_id"), 'selected' => $instance["recent_cat_id"], 'show_option_all' => 'All', 'show_count' => true ) ); ?>
 		</p>
-		
+
 		<hr>
 		<h4><?php _e('热门文章','tinection'); ?></h4>
 		<p>
@@ -325,14 +326,14 @@ class TinTabs extends WP_Widget {
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('popular_thumbs'); ?>" name="<?php echo $this->get_field_name('popular_thumbs'); ?>" <?php checked( (bool) $instance["popular_thumbs"], true ); ?>>
 			<label for="<?php echo $this->get_field_id('popular_thumbs'); ?>"><?php _e('显示缩略图','tinection'); ?></label>
-		</p>	
+		</p>
 		<p>
 			<label style="width: 55%; display: inline-block;" for="<?php echo $this->get_field_id("popular_num"); ?>"><?php _e('要显示的条目','tinection'); ?></label>
 			<input style="width:20%;" id="<?php echo $this->get_field_id("popular_num"); ?>" name="<?php echo $this->get_field_name("popular_num"); ?>" type="text" value="<?php echo absint($instance["popular_num"]); ?>" size='3' />
 		</p>
 		<p>
 			<label style="width: 100%; display: inline-block;" for="<?php echo $this->get_field_id("popular_cat_id"); ?>"><?php _e('分类:','tinection'); ?></label>
-			<?php wp_dropdown_categories( array( 'name' => $this->get_field_name("popular_cat_id"), 'selected' => $instance["popular_cat_id"], 'show_option_all' => 'All', 'show_count' => true ) ); ?>		
+			<?php wp_dropdown_categories( array( 'name' => $this->get_field_name("popular_cat_id"), 'selected' => $instance["popular_cat_id"], 'show_option_all' => 'All', 'show_count' => true ) ); ?>
 		</p>
 		<p style="padding-top: 0.3em;">
 			<label style="width: 100%; display: inline-block;" for="<?php echo $this->get_field_id("popular_time"); ?>"><?php _e('最热评论文章来自：','tinection'); ?></label>
@@ -342,9 +343,9 @@ class TinTabs extends WP_Widget {
 			  <option value="1 month ago"<?php selected( $instance["popular_time"], "1 month ago" ); ?>><?php _e('本月','tinection'); ?></option>
 			  <option value="1 week ago"<?php selected( $instance["popular_time"], "1 week ago" ); ?>><?php _e('本周','tinection'); ?></option>
 			  <option value="1 day ago"<?php selected( $instance["popular_time"], "1 day ago" ); ?>><?php _e('过去24小时','tinection'); ?></option>
-			</select>	
+			</select>
 		</p>
-		
+
 		<hr>
 		<h4><?php _e('评论','tinection'); ?></h4>
 		<p>
@@ -368,13 +369,13 @@ class TinTabs extends WP_Widget {
 			<select style="width: 100%;" id="<?php echo $this->get_field_id("comment_order"); ?>" name="<?php echo $this->get_field_name("comment_order"); ?>">
 			  <option value="time"<?php selected( $instance["comment_order"], "time" ); ?>><?php _e('最新评论','tinection'); ?></option>
 			  <option value="vote"<?php selected( $instance["comment_order"], "vote" ); ?>><?php _e('最赞评论','tinection'); ?></option>
-			</select>	
+			</select>
 		</p>
 
 		<hr>
 
 		<h4><?php _e('Tab顺序','tinection'); ?></h4>
-		
+
 		<p>
 			<label style="width: 55%; display: inline-block;" for="<?php echo $this->get_field_id("order_recent"); ?>"><?php _e('近期文章','tinection'); ?></label>
 			<input class="widefat" style="width:20%;" type="text" id="<?php echo $this->get_field_id("order_recent"); ?>" name="<?php echo $this->get_field_name("order_recent"); ?>" value="<?php echo $instance["order_recent"]; ?>" />
@@ -386,10 +387,10 @@ class TinTabs extends WP_Widget {
 		<p>
 			<label style="width: 55%; display: inline-block;" for="<?php echo $this->get_field_id("order_comments"); ?>"><?php _e('最新评论','tinection'); ?></label>
 			<input class="widefat" style="width:20%;" type="text" id="<?php echo $this->get_field_id("order_comments"); ?>" name="<?php echo $this->get_field_name("order_comments"); ?>" value="<?php echo $instance["order_comments"]; ?>" />
-		</p>		
+		</p>
 		<hr>
 		<h4><?php _e('Tab信息','tinection'); ?></h4>
-		
+
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('tabs_category'); ?>" name="<?php echo $this->get_field_name('tabs_category'); ?>" <?php checked( (bool) $instance["tabs_category"], true ); ?>>
 			<label for="<?php echo $this->get_field_id('tabs_category'); ?>"><?php _e('显示分类','tinection'); ?></label>
@@ -398,9 +399,9 @@ class TinTabs extends WP_Widget {
 			<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('tabs_date'); ?>" name="<?php echo $this->get_field_name('tabs_date'); ?>" <?php checked( (bool) $instance["tabs_date"], true ); ?>>
 			<label for="<?php echo $this->get_field_id('tabs_date'); ?>"><?php _e('显示日期','tinection'); ?></label>
 		</p>
-		
+
 		<hr>
-		
+
 	</div>
 <?php
 
@@ -412,9 +413,9 @@ class TinTabs extends WP_Widget {
 /* ------------------------------------ */
 if ( ! function_exists( 'tin_register_widget_tabs' ) ) {
 
-	function tin_register_widget_tabs() { 
+	function tin_register_widget_tabs() {
 		register_widget( 'tinTabs' );
 	}
-	
+
 }
 add_action( 'widgets_init', 'tin_register_widget_tabs' );

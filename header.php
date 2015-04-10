@@ -45,6 +45,7 @@
 <?php wp_head(); ?>
 <!-- IE Fix for HTML5 Tags -->
 <!--[if lt IE 9]>
+<script src="<?php echo THEME_URI.'/includes/js/placeholders.min.js'; ?>"></script>
 <script src="<?php echo THEME_URI.'/includes/js/html5.js'; ?>"></script>
 <script src="<?php echo THEME_URI.'/includes/js/css3-mediaqueries.js'; ?>"></script>
 <script src="<?php echo THEME_URI.'/includes/js/PIE_IE678.js'; ?>"></script>

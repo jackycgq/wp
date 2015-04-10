@@ -14,7 +14,7 @@
 
 ?>
 <div class="comments-main">
-<?php 
+<?php
 	if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
 		die ('请勿直接加载此页。谢谢！');
 
@@ -24,10 +24,10 @@
 ?>
 <?php if ('open' == $post->comment_status) : ?>
 <div id="respond_box">
-	<div style="margin:8px 0 8px 0"><h3 class="multi-border-hl"><span><?php _e('发表评论','tinection'); ?></span></h3></div>	
+	<div style="margin:8px 0 8px 0"><h3 class="multi-border-hl"><span><?php _e('发表评论，标准评论必须符合500字以上才有资格被评选为最佳书评！加油哦！','tinection'); ?></span></h3></div>
 	<div id="respond">
 		<div class="cancel-comment-reply" style="margin-bottom:5px">
-			
+
 		<small><?php cancel_comment_reply_link(); ?></small>
 		</div>
 		<?php if ( get_option('comment_registration') && !$user_ID ) : ?>
@@ -80,7 +80,7 @@
 		</p>
 		<p class="comment-form-input-info" style="width:35%">
 			<label for="email"><?php _e('邮箱','tinection'); ?><?php if ($req) _e (' *','tinection'); ?></label>
-			<input type="email" name="email" id="email" class="commenttext" value="<?php echo $comment_author_email; ?>" size="22" tabindex="2" required />	
+			<input type="email" name="email" id="email" class="commenttext" value="<?php echo $comment_author_email; ?>" size="22" tabindex="2" required />
 		</p>
 		<p class="comment-form-input-info" style="width:35%;padding-right:0">
 			<label for="url"><?php _e('网址','tinection'); ?></label>
@@ -122,7 +122,7 @@
 		<?php }?>
 		<!-- /.Comments ad2 -->
 <?php if ($comments) : ?>
-	<div class="commenttitle"><a href="#normal_comments"><span id="comments" class="active"><i class="fa fa-comments-o"></i><?php $count_comments = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->comments  WHERE comment_approved='1' AND comment_post_ID = %d AND comment_type not in ('trackback','pingback')", $post->ID ) ); echo $count_comments; _e(' 评论','tinection'); ?></span><a><a href="#quote_comments"><span id="comments_quote"><i class="fa fa-share"></i><?php $count_comments_quote = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->comments  WHERE comment_approved='1' AND comment_post_ID = %d AND comment_type in ('trackback','pingback')",$post->ID ) ); echo $count_comments_quote; _e(' 引用','tinection'); ?></span></a></div>
+	<div class="commenttitle"><a href="#normal_comments"><span id="comments" class="active"><i class="fa fa-comments-o"></i><?php $count_comments = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->comments  WHERE comment_approved='1' AND comment_post_ID = %d AND comment_type not in ('trackback','pingback')", $post->ID ) ); echo $count_comments; _e(' 评论','tinection'); ?></span></a></div>
 	<ol class="commentlist" id="normal_comments">
 	<?php wp_list_comments('type=comment&callback=tin_comment&end-callback=tin_end_comment&max_depth=200&reverse_top_level=true'); ?>
 	<div class="cpagination"><?php paginate_comments_links('prev_text=«&next_text=»'); ?></div>

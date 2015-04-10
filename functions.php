@@ -60,6 +60,7 @@ if ( ! function_exists( 'tin_load' ) ) {
 		load_template( THEME_DIR . '/admin/theme-options.php' );		
 		// Load custom widgets
 		load_template( THEME_DIR . '/functions/widgets/tin-tabs.php' );
+        load_template( THEME_DIR . '/functions/widgets/tin-bestcomment.php' );
 		load_template( THEME_DIR . '/functions/widgets/tin-posts.php' );
 		load_template( THEME_DIR . '/functions/widgets/tin-posts-h.php' );
 		load_template( THEME_DIR . '/functions/widgets/tin-tagcloud.php' );
@@ -2100,7 +2101,7 @@ function add_custom_box_wpse_82317()
 {
     add_meta_box(
         'section_id_wpse_82317',
-        __( '最佳书评奖 投票支持数' ),
+        __( '如下的数字为目前公众投票支持数，仅供参考，以管理员指定的最佳评语为准！' ),
         'inner_custom_box_wpse_82317',
         'comment',
         'normal'
@@ -2117,14 +2118,14 @@ function inner_custom_box_wpse_82317( $comment )
 
     $c_meta = get_comment_meta( $comment->comment_ID, 'meta_comment_field', true );
     if($c_meta ==""){
-        echo "<input type='text' id='meta_comment_field' name='meta_comment_field' value='",
-        get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true),
-        "' size='25' />";
+        echo "<input  readonly='readonly' type='text' id='meta_comment_field' name='meta_comment_field' value='",
+        get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true)==""?"0":get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true),
+        "' size='25' />票";
     }
     else{
-        echo "<input type='text' id='meta_comment_field' name='meta_comment_field' value='",
+        echo "<input readonly='readonly' type='text' id='meta_comment_field' name='meta_comment_field' value='",
         esc_attr( $c_meta ),
-        "' size='25' />";
+        "' size='25' />票";
     }
 
 
@@ -2170,7 +2171,7 @@ function add_custom_box_wpse_82318()
 {
     add_meta_box(
         'section_id_wpse_82318',
-        __( '本季度最佳书评奖 第几名？' ),
+        __( '管理员可以指定本季度最佳书评奖的获得者！“划对勾”的书评会被展示在整站的右侧公告栏！！！' ),
         'inner_custom_box_wpse_82318',
         'comment',
         'normal'
@@ -2186,9 +2187,12 @@ function inner_custom_box_wpse_82318( $comment )
     wp_nonce_field( plugin_basename( __FILE__ ), 'noncename_wpse_82318' );
 
     $c_meta = get_comment_meta( $comment->comment_ID, 'meta_comment_field2', true );
-    echo "<input type='text' id='meta_comment_field2' name='meta_comment_field2' value='",
-    esc_attr( $c_meta ),
-    "' size='25' />";
+    if($c_meta === "on"){
+        echo "<input type='checkbox' id='meta_comment_field2' name='meta_comment_field2' checked />";
+    }
+    else{
+        echo "<input type='checkbox' id='meta_comment_field2' name='meta_comment_field2' />";
+    }
 
 }
 

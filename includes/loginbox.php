@@ -18,10 +18,16 @@
     <form id="login" action="<?php echo get_option('home'); ?>/wp-login.php" method="post" novalidate="novalidate">
         <?php if(get_option('users_can_register')==1){ ?><div id="register-active" class="switch"><i class="fa fa-toggle-on"></i>切换注册</div><?php } ?>
         <h3>登录<p class="status"></p></h3>
+        <strong>
+            请输入用户名
+        </strong>
         <p>
             <label class="icon" for="username"><i class="fa fa-user"></i></label>
             <input class="input-control" id="username" type="text" placeholder="请输入用户名" name="username" required="" aria-required="true">
         </p>
+        <strong>
+            请输入密码（6位以上）
+        </strong>
         <p>
             <label class="icon" for="password"><i class="fa fa-lock"></i></label>
             <input class="input-control" id="password" type="password" placeholder="请输入密码" name="password" required="" aria-required="true">
@@ -52,19 +58,31 @@
     <div class="part registerPart">
     <form id="register" action="<?php bloginfo('url'); ?>/wp-login.php?action=register" method="post" novalidate="novalidate">
         <div id="login-active" class="switch"><i class="fa fa-toggle-off"></i>切换登录</div>
-        <h3>注册<p class="status"></p></h3>    
+        <h3>注册<p class="status"></p></h3>
+        <strong>
+            请输入英文用户名（纯字母即可）
+        </strong>
         <p>
             <label class="icon" for="user_name"><i class="fa fa-user"></i></label>
             <input class="input-control" id="user_name" type="text" name="user_name" placeholder="输入英文用户名" required="" aria-required="true">
         </p>
+        <strong>
+            请输入常用邮箱（用于您找回密码）
+        </strong>
         <p>
             <label class="icon" for="user_email"><i class="fa fa-envelope"></i></label>
             <input class="input-control" id="user_email" type="email" name="user_email" placeholder="输入常用邮箱" required="" aria-required="true">
         </p>
+        <strong>
+            请输入密码（6位以上）
+        </strong>
         <p>
             <label class="icon" for="user_pass"><i class="fa fa-lock"></i></label>
             <input class="input-control" id="user_pass" type="password" name="user_pass" placeholder="密码最小长度为6" required="" aria-required="true">
         </p>
+        <strong>
+            请再次输入密码
+        </strong>
         <p>
             <label class="icon" for="user_pass2"><i class="fa fa-retweet"></i></label>
             <input class="input-control" type="password" id="user_pass2" name="user_pass2" placeholder="再次输入密码" required="" aria-required="true">
