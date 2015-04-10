@@ -60,25 +60,12 @@ if ( ! function_exists( 'tin_load' ) ) {
 		load_template( THEME_DIR . '/admin/theme-options.php' );		
 		// Load custom widgets
 		load_template( THEME_DIR . '/functions/widgets/tin-tabs.php' );
-        load_template( THEME_DIR . '/functions/widgets/tin-bestcomment.php' );
-		load_template( THEME_DIR . '/functions/widgets/tin-posts.php' );
-		load_template( THEME_DIR . '/functions/widgets/tin-posts-h.php' );
+        load_template( THEME_DIR . '/functions/widgets/tin-tabs-h.php' );
 		load_template( THEME_DIR . '/functions/widgets/tin-tagcloud.php' );
-		load_template( THEME_DIR . '/functions/widgets/tin-enhanced-text.php' );
-		load_template( THEME_DIR . '/functions/widgets/tin-readerwall.php' );
-		load_template( THEME_DIR . '/functions/widgets/tin-mailcontact.php' );
-		load_template( THEME_DIR . '/functions/widgets/tin-site.php' );
-		load_template( THEME_DIR . '/functions/widgets/tin-float-widget.php' );
 		load_template( THEME_DIR . '/functions/widgets/tin-bookmark.php' );
 		load_template( THEME_DIR . '/functions/widgets/tin-bookmark-h.php' );
-		load_template( THEME_DIR . '/functions/widgets/tin-subscribe.php' );
-		load_template( THEME_DIR . '/functions/widgets/tin-aboutsite.php' );
-		load_template( THEME_DIR . '/functions/widgets/tin-joinus.php' );
 		load_template( THEME_DIR . '/functions/widgets/tin-hotsearch.php' );
 		load_template( THEME_DIR . '/functions/widgets/tin-creditsrank.php' );
-		load_template( THEME_DIR . '/functions/widgets/tin-ucenter.php' );
-		load_template( THEME_DIR . '/functions/widgets/tin-donate.php' );
-		load_template( THEME_DIR . '/functions/widgets/tin-slider.php' );
 		// Load functions
 		load_template( THEME_DIR . '/functions/open-social.php' );
 		load_template( THEME_DIR . '/functions/message.php' );
@@ -2064,75 +2051,6 @@ function tin_alipay_post_gather($alipay_email,$amount=10,$hide=0){
 }
 
 ///////////////////////////////////////////////////////////////
-// SAVE COMMENT META
-// only found this hook to process the POST
-add_filter( 'comment_edit_redirect',  'save_comment_wpse_82317', 10, 2 );
-
-// META BOX
-add_action( 'add_meta_boxes', 'add_custom_box_wpse_82317' );
-
-/**
- * Save Custom Comment Field
- * This hook deals with the redirect after saving, we are only taking advantage of it
- */
-function save_comment_wpse_82317( $location, $comment_id )
-{
-    // Not allowed, return regular value without updating meta
-    if ( !wp_verify_nonce( $_POST['noncename_wpse_82317'], plugin_basename( __FILE__ ) )
-        && !isset( $_POST['meta_comment_field'] )
-    )
-        return $location;
-
-    // Update meta
-    update_comment_meta(
-        $comment_id,
-        'meta_comment_field',
-        sanitize_text_field( $_POST['meta_comment_field'] )
-    );
-
-    // Return regular value after updating
-    return $location;
-}
-
-/**
- * Add Comment meta box
- */
-function add_custom_box_wpse_82317()
-{
-    add_meta_box(
-        'section_id_wpse_82317',
-        __( '如下的数字为目前公众投票支持数，仅供参考，以管理员指定的最佳评语为准！' ),
-        'inner_custom_box_wpse_82317',
-        'comment',
-        'normal'
-    );
-}
-
-/**
- * Render meta box with Custom Field
- */
-function inner_custom_box_wpse_82317( $comment )
-{
-    // Use nonce for verification
-    wp_nonce_field( plugin_basename( __FILE__ ), 'noncename_wpse_82317' );
-
-    $c_meta = get_comment_meta( $comment->comment_ID, 'meta_comment_field', true );
-    if($c_meta ==""){
-        echo "<input  readonly='readonly' type='text' id='meta_comment_field' name='meta_comment_field' value='",
-        get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true)==""?"0":get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true),
-        "' size='25' />票";
-    }
-    else{
-        echo "<input readonly='readonly' type='text' id='meta_comment_field' name='meta_comment_field' value='",
-        esc_attr( $c_meta ),
-        "' size='25' />票";
-    }
-
-
-}
-
-
-
 
 // SAVE COMMENT META2
 // only found this hook to process the POST22222222

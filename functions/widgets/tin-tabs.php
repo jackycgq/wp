@@ -16,7 +16,7 @@ class TinTabs extends WP_Widget {
 /*  Constructor
 /* ------------------------------------ */
 	function TinTabs() {
-		parent::__construct( false, 'Tin-选项卡列表', array('description' => 'Tinection-以选项卡式显示文章、评论等内容', 'classname' => 'widget_tin_tabs') );;
+		parent::__construct( false, 'Tin-最新、最赞评论', array('description' => 'Tinection-以选项卡式显示文章、评论等内容', 'classname' => 'widget_tin_tabs') );;
 	}
 
 /*  Create tabs-nav
@@ -166,36 +166,31 @@ class TinTabs extends WP_Widget {
 
 			<ul id="tab-comments" class="tin-tab group <?php if($instance['comments_avatars']) { echo 'avatars-enabled'; } else {echo 'no-avatar';} ?>">
 				<?php foreach ($comments as $comment):?>
-                <?php
-                    $c_meta = get_comment_meta( $comment->comment_ID, 'meta_comment_field2', true );
-                    if($c_meta === "on"){
-                ?>
 
-                    <li>
-                            <?php if($instance['comments_avatars']) { // Avatars enabled? ?>
-                            <div class="tab-item-avatar">
-                                <?php echo tin_get_avatar( $comment->user_id , '96' , tin_get_avatar_type($comment->user_id) ); ?>
-                            </div>
-                            <?php } ?>
+                <li>
+                        <?php if($instance['comments_avatars']) { // Avatars enabled? ?>
+                        <div class="tab-item-avatar">
+                            <?php echo tin_get_avatar( $comment->user_id , '96' , tin_get_avatar_type($comment->user_id) ); ?>
+                        </div>
+                        <?php } ?>
 
-                            <div class="tab-item-inner group">
-                                <?php
-                                $comment_excerpt = preg_replace("'\[private](.*?)\[\/private]'",'***该评论仅父级评论者及管理员可见***',get_comment_excerpt($comment->comment_ID));
-                                $length = 55;
-                                $text = $comment_excerpt;
-                                if(mb_strlen($comment_excerpt, 'utf8') > $length)
-                                $text = mb_substr($text, 0, $length, 'utf8').'...';
-                                $str=explode(' ',$comment_excerpt); $comment_excerpt=implode(' ',array_slice($str,0,11)); if(count($str) > 11 && substr($comment_excerpt,-1)!='.') $comment_excerpt.='...' ?>
-                                <div class="tab-item-comment"><span class="arrow-poptop"></span><a href="<?php echo esc_url(get_permalink($comment->comment_post_ID)); ?>"><i><?php echo $comment->comment_author; ?></i><?php _e('说: ','tinection'); ?><?php echo $text; ?></a><div class="tab-cmt-votes"><span class="cmt-vote">
-                        <?php $c_name = 'tin_comment_vote_'.$comment->comment_ID;$cookie = isset($_COOKIE[$c_name])?$_COOKIE[$c_name]:'';?>
-                        <i class="fa fa-thumbs-o-up <?php if($cookie==1)echo 'voted'; ?>" title="<?php _e('顶','tinection'); ?>" data="<?php echo $comment->comment_ID; ?>" data-type="1" data-num="<?php echo (int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true); ?>"><?php echo ' ['.(int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true).']'; ?></i>
+                        <div class="tab-item-inner group">
+                            <?php
+                            $comment_excerpt = preg_replace("'\[private](.*?)\[\/private]'",'***该评论仅父级评论者及管理员可见***',get_comment_excerpt($comment->comment_ID));
+                            $length = 55;
+                            $text = $comment_excerpt;
+                            if(mb_strlen($comment_excerpt, 'utf8') > $length)
+                            $text = mb_substr($text, 0, $length, 'utf8').'...';
+                            $str=explode(' ',$comment_excerpt); $comment_excerpt=implode(' ',array_slice($str,0,11)); if(count($str) > 11 && substr($comment_excerpt,-1)!='.') $comment_excerpt.='...' ?>
+                            <div class="tab-item-comment"><span class="arrow-poptop"></span><a href="<?php echo esc_url(get_permalink($comment->comment_post_ID)); ?>"><i><?php echo $comment->comment_author; ?></i><?php _e('说: ','tinection'); ?><?php echo $text; ?></a><div class="tab-cmt-votes"><span class="cmt-vote">
+                    <?php $c_name = 'tin_comment_vote_'.$comment->comment_ID;$cookie = isset($_COOKIE[$c_name])?$_COOKIE[$c_name]:'';?>
+                    <i class="fa fa-thumbs-o-up <?php if($cookie==1)echo 'voted'; ?>" title="<?php _e('顶','tinection'); ?>" data="<?php echo $comment->comment_ID; ?>" data-type="1" data-num="<?php echo (int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true); ?>"><?php echo ' ['.(int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true).']'; ?></i>
 
-                    </span></div></div>
+                </span></div></div>
 
-                            </div>
+                        </div>
 
-                    </li>
-                <?php }?>
+                </li>
 				<?php endforeach; ?>
 			</ul><!--/.tin-tab-->
 
