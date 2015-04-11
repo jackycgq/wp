@@ -57,11 +57,11 @@ global $commentcount,$wpdb, $post;
 		<?php endif; ?>
 		<?php if ( $comment->comment_approved == '1' ) : ?>
 
-            <?php $length = 120;
+            <?php $length = 150;
                   $comment_ex = get_comment_excerpt($comment->comment_ID);
             if(mb_strlen($comment_ex, 'utf8') > $length) {?>
 		    <div id="dir_short_<?php echo $comment->comment_ID;?>">
-                <?php echo (mb_substr(get_comment_excerpt($comment->comment_ID), 0, 120, 'utf8').'...'); ?>
+                <?php echo (mb_substr(get_comment_excerpt($comment->comment_ID), 0, 150, 'utf8').'...'); ?>
                 <a href="javascript:$('#dir_short_<?php echo $comment->comment_ID;?>').hide();$('#dir_full_<?php echo $comment->comment_ID;?>').show();void(0);">更多</a>
             </div>
 
@@ -105,12 +105,104 @@ global $commentcount,$wpdb, $post;
 	<div class="clear"></div>
 	</div>
 </div>
-  
+
 <?php
 }
 function tin_end_comment() {
 		echo '</li>';
 }
+
+
+
+
+/* 评论调用函数
+/* ------------------- */
+function tin_comment_short($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment;
+    global $commentcount,$wpdb, $post;
+    if(!$commentcount) {
+        $cnt = $wpdb->get_var("SELECT COUNT(comment_ID) FROM $wpdb->comments WHERE comment_post_ID = $post->ID AND comment_type = '' AND comment_approved = '1' AND !comment_parent");
+        $page = get_query_var('cpage');
+        $cpp=get_option('comments_per_page');
+        if (ceil($cnt / $cpp) == 1 || ($page > 1 && $page  == ceil($cnt / $cpp))) {
+            $commentcount = $cnt + 1;
+        } else {
+            $commentcount = $cpp * $page + 1;
+        }
+    }
+    ?>
+    <li <?php comment_class(); ?> id="comment-<?php comment_ID() ?>">
+    <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
+        <?php echo tin_get_avatar( $comment->user_id , '54' , tin_get_avatar_type($comment->user_id) ); ?>
+        <span class="floor">
+		<?php if(!$parent_id = $comment->comment_parent){
+            printf('%1$s%2$s',__('#','tinection'),__(--$commentcount));
+        }?>
+	</span>
+        <?php $add_below = 'div-comment'; ?>
+        <div class="comment-main">
+            <?php if ( $comment->comment_approved == '0' ) : ?>
+                <span style="color:#C00; font-style:inherit; margin-top:5px; line-height:25px;"><?php $cpid = $comment->comment_parent; if($cpid!=0)echo '@'; comment_author_link($cpid) ?><?php _e('您的评论正在等待审核中...','tinection'); ?></span>
+                <br />
+            <?php endif; ?>
+            <?php if ( $comment->comment_approved == '1' ) : ?>
+
+                <?php $length = 150;
+                $comment_ex = get_comment_excerpt($comment->comment_ID);
+                if(mb_strlen($comment_ex, 'utf8') > $length) {?>
+                    <div id="dir_short_<?php echo $comment->comment_ID;?>">
+                        <?php echo (mb_substr(get_comment_excerpt($comment->comment_ID), 0, 150, 'utf8').'...'); ?>
+                        <a href="javascript:$('#dir_short_<?php echo $comment->comment_ID;?>').hide();$('#dir_full_<?php echo $comment->comment_ID;?>').show();void(0);">更多</a>
+                    </div>
+
+                    <div id="dir_full_<?php echo $comment->comment_ID;?>" style="display: none;">
+                        <?php comment_text(); ?>
+                        <a href="javascript:$('#dir_full_<?php echo $comment->comment_ID;?>').hide();$('#dir_short_<?php echo $comment->comment_ID;?>').show();void(0);">收起</a>
+                    </div>
+                <?php } else {?>
+                    <div id="dir_full_<?php echo $comment->comment_ID;?>">
+                        <?php comment_text(); ?>
+                    </div>
+                <?php }?>
+            <?php endif; ?>
+            <div class="comment-author">
+                <div class="comment-info">
+                    <span class="comment_author_link"><?php if($comment->user_id != 0){echo '<a href="'.get_author_posts_url($comment->user_id).'" class="name">'.$comment->comment_author.'</a>';}else{comment_author_link();} ?></span>
+                    <?php if(ot_get_option('comment_vip')=='on') get_author_class($comment->comment_author_email,$comment->user_id); ?>
+                    <?php if(ot_get_option('comment_ua')=='on') echo outputbrowser($comment->comment_agent); ?>
+                    <?php if(ot_get_option('comment_ip')=='on') { ?><span class="comment_author_ip tooltip-trigger" title="<?php echo sprintf(__('来自%1$s','tinection'),convertip(get_comment_author_ip())); ?>"><img class="ip_img" src="<?php echo THEME_URI.'/images/ua/ip.png'; ?>"></span><?php } ?>
+                    <span class="datetime">
+					<?php echo timeago(get_gmt_from_date(get_comment_date('Y-m-d G:i:s'))); ?>
+				</span>
+				<span class="reply">
+					<?php if(is_user_logged_in()){comment_reply_link(array_merge( $args, array('reply_text' => __('回复','tinection'), 'add_below' =>$add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'])));}else{echo '<a rel="nofollow" class="comment-reply-login user-login" href="javascript:">'.__('登录以回复','tinection').'</a>';} ?>
+				</span>
+				<span class="cmt-vote">
+
+                    <?php if(is_user_logged_in()){ ?>
+                        <?php $c_name = 'tin_comment_vote_'.$comment->comment_ID;$cookie = isset($_COOKIE[$c_name])?$_COOKIE[$c_name]:'';?>
+                        <i class="fa fa-thumbs-o-up <?php if($cookie==1)echo 'voted'; ?>" title="<?php _e('顶一下','tinection'); ?>" data="<?php echo $comment->comment_ID; ?>" data-type="1" data-num="<?php echo (int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true); ?>"><?php echo ' ['.(int)get_comment_meta($comment->comment_ID,'tin_comment_voteyes',true).']'; ?></i>
+                    <?php }
+                    else
+                    {
+                        echo '<a rel="nofollow" class="comment-reply-login user-login" href="javascript:">'.__('登录后方可为他/她投上你神圣的一票','tinection').'</a>';
+                    } ?>
+
+				</span>
+                    <?php edit_comment_link(__('编辑','tinection'));?>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+<?php
+}
+function tin_end_comment_short() {
+    echo '</li>';
+}
+
+
 
 function tin_comment_quote($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment;
@@ -209,7 +301,7 @@ function get_author_class($comment_author_email,$user_id){
 	$authorEmail = get_the_author_meta('email');
 	if(!$comment_author_email) echo '<span class="comment_author_vip tooltip-trigger" title="'.__('评论达人 LV.1','tinection').'"><span class="vip vip1">'.__('评论达人 LV.1','tinection').'</span></span>'; else{
 	if($comment_author_email && $user_id && $comment_author_email == $adminEmail){
-		echo '<span class="comment_author_vip tooltip-trigger" title="'.__('博主','tinection').'"><span class="vip vip-blogger">'.__('博 主','tinection').'</span></span>';
+		echo '<span class="comment_author_vip tooltip-trigger" title="'.__('博主','tinection').'"><span class="vip vip-blogger">'.__('管理员','tinection').'</span></span>';
 		}elseif($user_id && $comment_author_email == $authorEmail){
 			echo '<span class="comment_author_vip tooltip-trigger" title="'.__('作者','tinection').'"><span class="vip vip-author">'.__('作 者','tinection').'</span></span>';
 		}elseif($author_count>=1 && $author_count<3){  
@@ -235,10 +327,10 @@ function refused_spam_comments( $comment_data ){
 	$pattern = '/[一-龥]/u';  
 	$jpattern ='/[ぁ-ん]+|[ァ-ヴ]+/u';
 	if(!preg_match($pattern,$comment_data['comment_content'])){  
-		err('不能纯英文评论！You should type some Chinese word!');  
+		err('不能纯英文评论！请输入中文!');
 	} 
 	if(preg_match($jpattern, $comment_data['comment_content'])){
-		err('日文滚粗！Japanese Get out！日本語出て行け！ You should type some Chinese word！');  
+		err('请输入中文!');
 	}
 	return( $comment_data );  
 }  

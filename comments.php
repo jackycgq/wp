@@ -71,6 +71,7 @@
 					jQuery('#comment-author-info').hide();
 				});
 			</script>
+
 	<?php endif; ?>
 	<?php if ( ! $user_ID ): ?>
 	<div id="comment-author-info">
@@ -90,19 +91,30 @@
       <?php endif; ?>
       <div class="clear"></div>
       <div class="comt-box">
-		<textarea name="comment" id="comment" tabindex="5" rows="5" placeholder="<?php _e('说点什么吧...','tinection'); ?>" required></textarea>
+		<textarea name="comment" id="comment" tabindex="5" rows="5" placeholder="<?php _e('说点什么吧，留下您的评语，我们会定期选出最佳评语！','tinection'); ?>" required></textarea>
 		<div class="comt-ctrl">
-			<span data-type="comment-insert-smilie" class="comt-smilie"><i class="fa fa-smile-o"></i><?php _e(' 表情','tinection'); ?></span>
-			<span class="comt-format"><i class="fa fa-code"></i><?php _e(' 格式','tinection'); ?></span>
 			<button class="submit btn btn-submit" name="submit" type="submit" id="submit" tabindex="6"><i class="fa fa-check-square-o"></i><?php _e(' 提交评论','tinection'); ?></button>
-			<!--input class="reset" name="reset" type="reset" id="reset" tabindex="7" value="<?php esc_attr_e( '重　　写','tinection' ); ?>" /-->
+			<!--<input class="reset" name="reset" type="reset" id="reset" tabindex="7" value="<?php /*esc_attr_e( '重　　写','tinection' ); */?>" />-->
 			<?php comment_id_fields(); ?>
 		</script>
 		<?php do_action('comment_form', $post->ID); ?>
 		<div class="clr"></div>
+        <script type="text/javascript">
+        jQuery(function($) {
+            //配置
+            var comment_input = $( '#commentform textarea' );
+            var comment_length = 0;
+            // 计算并显示已经输入的字数
+            $( '<div class="comment_limit_info">您已输入字数:<span>' +comment_length+　'</span></div>' ).insertAfter( comment_input );
+            comment_input.bind( 'keyup', function() {
+                // 计算已经输入的字数
+                comment_length = $(this).val().length;
+                // 显示已经输入的字数
+                $( '.comment_limit_info span' ).html( comment_length );
+            });
+        });
+            </script>
 		</div>
-		<div id="comt-smilie" class="comt-tools hide"><?php get_template_part('/includes/smiley'); ?></div>
-		<div id="comt-format" class="comt-tools hide editor_tools"><?php wp_comment_quicktag(); ?></div>
 	   </div>
     </form>
 	<div class="clear"></div>
@@ -122,17 +134,25 @@
 		<?php }?>
 		<!-- /.Comments ad2 -->
 <?php if ($comments) : ?>
-	<div class="commenttitle"><a href="#normal_comments"><span id="comments" class="active"><i class="fa fa-comments-o"></i><?php $count_comments = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->comments  WHERE comment_approved='1' AND comment_post_ID = %d AND comment_type not in ('trackback','pingback')", $post->ID ) ); echo $count_comments; _e(' 评论','tinection'); ?></span></a></div>
+	<div class="commenttitle">
+        <a href="#normal_comments">
+            <span id="comments" class="active"><i class="fa fa-comments-o"></i>
+                <?php $count_comments = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->comments  WHERE comment_approved='1' AND comment_post_ID = %d AND length(comment_content) > 200 AND comment_type not in ('trackback','pingback')", $post->ID ) ); echo $count_comments; _e(' 标准评语 ','tinection'); ?>
+            </span>
+        </a>
+        <a href="#quote_comments">
+            <span id="comments_quote"><i class="fa fa-comments-o"></i>
+                <?php $count_comments = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->comments  WHERE comment_approved='1' AND comment_post_ID = %d AND length(comment_content) <= 200 AND comment_type not in ('trackback','pingback')", $post->ID ) ); echo $count_comments; _e(' 简短小评','tinection'); ?>
+            </span>
+        </a>
+    </div>
 	<ol class="commentlist" id="normal_comments">
-	<?php wp_list_comments('type=comment&callback=tin_comment&end-callback=tin_end_comment&max_depth=200&reverse_top_level=true'); ?>
-	<div class="cpagination"><?php paginate_comments_links('prev_text=«&next_text=»'); ?></div>
+        <?php wp_list_comments('type=comment&callback=tin_comment&end-callback=tin_end_comment&max_depth=200&reverse_top_level=true'); ?>
+        <div class="cpagination"><?php paginate_comments_links('prev_text=«&next_text=»'); ?></div>
 	</ol>
 	<ol class="commentlist" id="quote_comments">
-	<div class="go-trackback">
-		<input type="text" class="trackback-url" value="<?php trackback_url(); ?>" >
-		<button type="submit" class="quick-copy-btn"><?php _e('复制引用','tinection'); ?></button>
-	</div>
-	<?php wp_list_comments('type=pings&callback=tin_comment_quote&end-callback=tin_end_comment&max_depth=20&reverse_top_level=true'); ?>
+        <?php wp_list_comments('type=comment&callback=tin_comment_short&end-callback=tin_end_comment_short&max_depth=200&reverse_top_level=true'); ?>
+        <div class="cpagination"><?php paginate_comments_links('prev_text=«&next_text=»'); ?></div>
 	</ol>
 
 <?php else : ?>
