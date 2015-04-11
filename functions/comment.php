@@ -25,13 +25,21 @@ function at_comment_parent($comment_text){
 }
 add_filter('comment_text','at_comment_parent');
 
+
+function is_long_comment($comment){
+    $length = 200;
+    if(mb_strlen($comment, 'utf8') > $length) {
+        return 1;
+    }
+    return 0;
+}
 /* 评论调用函数
 /* ------------------- */
 function tin_comment($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment;
 global $commentcount,$wpdb, $post;
      if(!$commentcount) {
-          $cnt = $wpdb->get_var("SELECT COUNT(comment_ID) FROM $wpdb->comments WHERE comment_post_ID = $post->ID AND comment_type = '' AND comment_approved = '1' AND !comment_parent");
+          $cnt = $wpdb->get_var("SELECT COUNT(comment_ID) FROM $wpdb->comments WHERE comment_post_ID = $post->ID AND comment_type = '' AND char_length(comment_content)>200 AND comment_approved = '1' AND !comment_parent");
           $page = get_query_var('cpage');
           $cpp=get_option('comments_per_page');
          if (ceil($cnt / $cpp) == 1 || ($page > 1 && $page  == ceil($cnt / $cpp))) {
@@ -41,7 +49,7 @@ global $commentcount,$wpdb, $post;
          }
      }
 ?>
-<li <?php comment_class(); ?> id="comment-<?php comment_ID() ?>">
+<li <?php comment_class(); ?> id="comment-<?php comment_ID();?>"  <?php echo is_long_comment(get_comment_excerpt($comment->comment_ID))?'':'style="visibility: hidden; display: none;"'?>>
 	<div id="div-comment-<?php comment_ID() ?>" class="comment-body">
 	<?php echo tin_get_avatar( $comment->user_id , '54' , tin_get_avatar_type($comment->user_id) ); ?>
 	<span class="floor">
@@ -121,7 +129,7 @@ function tin_comment_short($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
     global $commentcount,$wpdb, $post;
     if(!$commentcount) {
-        $cnt = $wpdb->get_var("SELECT COUNT(comment_ID) FROM $wpdb->comments WHERE comment_post_ID = $post->ID AND comment_type = '' AND comment_approved = '1' AND !comment_parent");
+        $cnt = $wpdb->get_var("SELECT COUNT(comment_ID) FROM $wpdb->comments WHERE comment_post_ID = $post->ID AND comment_type = '' AND char_length(comment_content)<= 200 comment_approved = '1' AND !comment_parent");
         $page = get_query_var('cpage');
         $cpp=get_option('comments_per_page');
         if (ceil($cnt / $cpp) == 1 || ($page > 1 && $page  == ceil($cnt / $cpp))) {
@@ -131,7 +139,7 @@ function tin_comment_short($comment, $args, $depth) {
         }
     }
     ?>
-    <li <?php comment_class(); ?> id="comment-<?php comment_ID() ?>">
+    <li <?php comment_class(); ?> id="comment-<?php comment_ID() ?>" <?php echo is_long_comment(get_comment_excerpt($comment->comment_ID))?'style="visibility: hidden; display: none;"':''?>>
     <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
         <?php echo tin_get_avatar( $comment->user_id , '54' , tin_get_avatar_type($comment->user_id) ); ?>
         <span class="floor">

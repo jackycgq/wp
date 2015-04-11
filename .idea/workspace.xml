@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="21ad293f-06ea-4f45-b4c5-4a6fef6b7322" name="Default" comment="">
+    <list default="true" id="21ad293f-06ea-4f45-b4c5-4a6fef6b7322" name="Default" comment="fixed comments widgets">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions/comment.php" afterPath="$PROJECT_DIR$/functions/comment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comments.php" afterPath="$PROJECT_DIR$/comments.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tinection.iws" />
@@ -30,7 +32,7 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.583334" vertical-offset="30202" max-vertical-offset="31980">
+            <state vertical-scroll-proportion="0.0" vertical-offset="30202" max-vertical-offset="31980">
               <caret line="2053" column="0" selection-start-line="2053" selection-start-column="0" selection-end-line="2053" selection-end-column="0" />
               <folding>
                 <marker date="1428672464000" expanded="false" signature="23944:24071" placeholder="..." />
@@ -53,7 +55,7 @@
       <file leaf-file-name="tin-posts.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions/widgets/tin-posts.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2925">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2925">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -63,56 +65,9 @@
       <file leaf-file-name="tin-slider.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions/widgets/tin-slider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2595">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2595">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tin-creditsrank.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions/widgets/tin-creditsrank.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.875" vertical-offset="0" max-vertical-offset="1035">
-              <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tin-ucenter.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions/widgets/tin-ucenter.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="675">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tin-bookmark.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions/widgets/tin-bookmark.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1350">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1428662917000" expanded="true" signature="822:871" placeholder="SELECT * FRO.._wpdb_links ORDER..." />
-                <marker date="1428662917000" expanded="true" signature="925:981" placeholder="SELECT * FRO.._wpdb_links ORDER..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tin-site.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions/widgets/tin-site.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="885">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1428662918000" expanded="true" signature="941:962" placeholder="SELECT COUNT..wpdb_comments..." />
-                <marker date="1428662918000" expanded="true" signature="1246:1304" placeholder="SELECT COUNT.._wpdb_links WHERE..." />
-                <marker date="1428662918000" expanded="true" signature="1716:1874" placeholder="SELECT MAX(p.._wpdb_posts WHERE..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -120,45 +75,116 @@
       <file leaf-file-name="tin-tabs.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions/widgets/tin-tabs.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.25" vertical-offset="4071" max-vertical-offset="6315">
+            <state vertical-scroll-proportion="0.0" vertical-offset="4071" max-vertical-offset="6315">
               <caret line="283" column="8" selection-start-line="283" selection-start-column="8" selection-end-line="286" selection-end-column="12" />
               <folding>
                 <element signature="e#6#224#0#PHP" expanded="true" />
-                <element signature="e#13381#13423#0#HTML" expanded="true" />
-                <element signature="e#13532#13550#0#HTML" expanded="true" />
-                <element signature="e#13765#13808#0#HTML" expanded="true" />
-                <element signature="e#15222#15264#0#HTML" expanded="true" />
-                <element signature="e#15374#15392#0#HTML" expanded="true" />
-                <element signature="e#15610#15653#0#HTML" expanded="true" />
-                <element signature="e#15956#15983#0#HTML" expanded="true" />
-                <element signature="e#15995#16038#0#HTML" expanded="true" />
-                <element signature="e#16153#16173#0#HTML" expanded="true" />
-                <element signature="e#18093#18135#0#HTML" expanded="true" />
-                <element signature="e#18247#18265#0#HTML" expanded="true" />
-                <element signature="e#18475#18502#0#HTML" expanded="true" />
-                <element signature="e#18514#18557#0#HTML" expanded="true" />
-                <element signature="e#18668#18688#0#HTML" expanded="true" />
-                <element signature="e#19147#19189#0#HTML" expanded="true" />
-                <element signature="e#19314#19332#0#HTML" expanded="true" />
-                <element signature="e#19536#19578#0#HTML" expanded="true" />
-                <element signature="e#19704#19722#0#HTML" expanded="true" />
-                <element signature="e#19929#19971#0#HTML" expanded="true" />
-                <element signature="e#20098#20116#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tin-tabs-h.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tin-tabs-h.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions/widgets/tin-tabs-h.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20465116" vertical-offset="3902" max-vertical-offset="4770">
+            <state vertical-scroll-proportion="1.5416666" vertical-offset="4027" max-vertical-offset="4770">
               <caret line="279" column="0" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
               <folding>
                 <element signature="e#6#224#0#PHP" expanded="true" />
                 <element signature="n#_create_tabs#0;n#TinTabsh#0;n#!!top" expanded="false" />
-                <element signature="e#16598#16640#0#HTML" expanded="true" />
-                <element signature="e#16765#16783#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comment.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/functions/comment.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.06989247" vertical-offset="667" max-vertical-offset="5295">
+              <caret line="41" column="150" selection-start-line="41" selection-start-column="150" selection-end-line="41" selection-end-column="150" />
+              <folding>
+                <element signature="e#6#390#0#PHP" expanded="true" />
+                <element signature="e#2297#2370#0#HTML" expanded="true" />
+                <element signature="e#3188#3210#0#HTML" expanded="true" />
+                <element signature="e#7361#7434#0#HTML" expanded="true" />
+                <element signature="e#8337#8359#0#HTML" expanded="true" />
+                <element signature="e#12366#12385#0#HTML" expanded="true" />
+                <element signature="e#12915#12988#0#HTML" expanded="true" />
+                <marker date="1428752579000" expanded="true" signature="1173:1358" placeholder="SELECT COUNT.._wpdb_comments WHERE..." />
+                <marker date="1428752579000" expanded="true" signature="1914:1963" placeholder="..." />
+                <marker date="1428752579000" expanded="true" signature="2036:2099" placeholder="..." />
+                <marker date="1428752579000" expanded="true" signature="6173:6356" placeholder="SELECT COUNT.._wpdb_comments WHERE..." />
+                <marker date="1428752579000" expanded="true" signature="11521:11709" placeholder="SELECT COUNT.._wpdb_comments WHERE..." />
+                <marker date="1428752579000" expanded="true" signature="15595:15640" placeholder="..." />
+                <marker date="1428752579000" expanded="true" signature="15924:16038" placeholder="SELECT COUNT.._wpdb_comments WHERE..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="14775" max-vertical-offset="28065">
+              <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index-cms.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/index-cms.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1785">
+              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+              <folding>
+                <element signature="e#6#395#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comments.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/comments.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="2400">
+              <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <marker date="1428752985000" expanded="true" signature="949:1102" placeholder="..." />
+                <marker date="1428752985000" expanded="true" signature="994:1011" placeholder="..." />
+                <marker date="1428752985000" expanded="true" signature="1012:1077" placeholder="..." />
+                <marker date="1428752985000" expanded="true" signature="1576:1643" placeholder="..." />
+                <marker date="1428752985000" expanded="true" signature="1601:1643" placeholder="..." />
+                <marker date="1428752985000" expanded="true" signature="2005:2057" placeholder="..." />
+                <marker date="1428752985000" expanded="true" signature="2030:2057" placeholder="..." />
+                <marker date="1428752985000" expanded="false" signature="2471:2483" placeholder="..." />
+                <marker date="1428752985000" expanded="true" signature="2713:2744" placeholder="..." />
+                <marker date="1428752985000" expanded="true" signature="4492:4632" placeholder="..." />
+                <marker date="1428752985000" expanded="true" signature="4964:5046" placeholder="..." />
+                <marker date="1428752985000" expanded="true" signature="4993:5046" placeholder="{...}" />
+                <marker date="1428752985000" expanded="true" signature="6214:6307" placeholder="SELECT COUNT.._wpdb_comments  WHERE..." />
+                <marker date="1428752985000" expanded="true" signature="6214:6391" placeholder="SELECT COUNT.._wpdb_comments  WHERE..." />
+                <marker date="1428752985000" expanded="true" signature="6674:6767" placeholder="SELECT COUNT.._wpdb_comments  WHERE..." />
+                <marker date="1428752985000" expanded="true" signature="6674:6852" placeholder="SELECT COUNT.._wpdb_comments  WHERE..." />
+                <marker date="1428752985000" expanded="true" signature="7013:7045" placeholder="..." />
+                <marker date="1428752985000" expanded="true" signature="7304:7336" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comments-ajax.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functions/comments-ajax.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-35.625" vertical-offset="1185" max-vertical-offset="2160">
+              <caret line="147" column="14" selection-start-line="147" selection-start-column="14" selection-end-line="147" selection-end-column="14" />
+              <folding>
+                <marker date="1428662909000" expanded="true" signature="801:867" placeholder="SELECT post_.._wpdb_posts WHERE..." />
+                <marker date="1428662909000" expanded="true" signature="3234:3356" placeholder="SELECT comme.._wpdb_comments WHERE..." />
+                <marker date="1428662909000" expanded="true" signature="3634:3739" placeholder="SELECT comme.._wpdb_comments WHERE..." />
               </folding>
             </state>
           </provider>
@@ -178,20 +204,21 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/single.php" />
-        <option value="$PROJECT_DIR$/functions/comment.php" />
         <option value="$PROJECT_DIR$/functions/widgets/tin-bestcomment.php" />
         <option value="$PROJECT_DIR$/functions.php" />
         <option value="$PROJECT_DIR$/functions/widgets/tin-tabs.php" />
         <option value="$PROJECT_DIR$/functions/widgets/tin-tabs-h.php" />
+        <option value="$PROJECT_DIR$/functions/comment.php" />
+        <option value="$PROJECT_DIR$/comments.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1491" />
-    <option name="y" value="59" />
-    <option name="width" value="1280" />
-    <option name="height" value="777" />
+    <option name="x" value="1280" />
+    <option name="y" value="-53" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -250,20 +277,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="functions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -293,8 +306,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/ruituo" />
-    <property name="FullScreen" value="false" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.JSP" />
+    <property name="FullScreen" value="true" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.PHP" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
@@ -380,22 +393,34 @@
       <option name="project" value="LOCAL" />
       <updated>1428675454278</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fixed comments widgets">
+      <created>1428675464563</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1428675464563</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fixed comments widgets  with short comment &amp; long comment sections">
+      <created>1428747846395</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1428747846395</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1491" y="59" width="1280" height="777" extended-state="0" />
-    <editor active="false" />
+    <frame x="1280" y="-53" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23163842" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19167474" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1890625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1046875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3220339" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -404,9 +429,9 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943678" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -450,7 +475,8 @@
     </option>
     <MESSAGE value="fixed comments collaspe-expand, fixed comments auto ellipse" />
     <MESSAGE value="fixed comments widgets" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed comments widgets" />
+    <MESSAGE value="fixed comments widgets  with short comment &amp; long comment sections" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed comments widgets  with short comment &amp; long comment sections" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -463,9 +489,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="684" max-vertical-offset="1748">
           <caret line="47" column="41" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
-          <folding>
-            <marker date="1428663032000" expanded="true" signature="-1:-1" placeholder=" Main Template of Tinection WordPress Theme ..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -510,26 +534,6 @@
           <caret line="4" column="23" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="23" />
           <folding>
             <element signature="e#6#224#0#PHP" expanded="true" />
-            <element signature="e#13381#13423#0#HTML" expanded="true" />
-            <element signature="e#13532#13550#0#HTML" expanded="true" />
-            <element signature="e#13765#13808#0#HTML" expanded="true" />
-            <element signature="e#15222#15264#0#HTML" expanded="true" />
-            <element signature="e#15374#15392#0#HTML" expanded="true" />
-            <element signature="e#15610#15653#0#HTML" expanded="true" />
-            <element signature="e#15956#15983#0#HTML" expanded="true" />
-            <element signature="e#15995#16038#0#HTML" expanded="true" />
-            <element signature="e#16153#16173#0#HTML" expanded="true" />
-            <element signature="e#18093#18135#0#HTML" expanded="true" />
-            <element signature="e#18247#18265#0#HTML" expanded="true" />
-            <element signature="e#18475#18502#0#HTML" expanded="true" />
-            <element signature="e#18514#18557#0#HTML" expanded="true" />
-            <element signature="e#18668#18688#0#HTML" expanded="true" />
-            <element signature="e#19147#19189#0#HTML" expanded="true" />
-            <element signature="e#19314#19332#0#HTML" expanded="true" />
-            <element signature="e#19536#19578#0#HTML" expanded="true" />
-            <element signature="e#19704#19722#0#HTML" expanded="true" />
-            <element signature="e#19929#19971#0#HTML" expanded="true" />
-            <element signature="e#20098#20116#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -545,9 +549,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="1365">
           <caret line="41" column="2" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
-          <folding>
-            <marker date="1428663032000" expanded="true" signature="-1:-1" placeholder=" Main Template of Tinection WordPress Theme ..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -583,9 +585,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1729">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1428663032000" expanded="true" signature="-1:-1" placeholder=" Main Template of Tinection WordPress Theme ..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -708,44 +708,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functions/comments-ajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2147" max-vertical-offset="2736">
-          <caret line="147" column="14" selection-start-line="147" selection-start-column="14" selection-end-line="147" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="35549">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comments.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.551724" vertical-offset="0" max-vertical-offset="2869">
-          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/index-cms.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1785">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding>
-            <marker date="1428663032000" expanded="true" signature="-1:-1" placeholder=" Main Template of Tinection WordPress Theme ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/catlist_bar_0.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="1007">
           <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-          <folding>
-            <element signature="e#6#396#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -753,9 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1230">
           <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-          <folding>
-            <element signature="e#6#31#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -763,7 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="210">
           <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -771,20 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1682" max-vertical-offset="2325">
           <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functions/comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="857" max-vertical-offset="3630">
-          <caret line="96" column="21" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
-          <folding>
-            <marker date="1428662907000" expanded="true" signature="-1:-1" placeholder="SELECT COUNT.._wpdb_comments WHERE..." />
-            <marker date="1428662907000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1428662907000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1428662907000" expanded="true" signature="-1:-1" placeholder="SELECT COUNT.._wpdb_comments WHERE..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -792,7 +740,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.2916667" vertical-offset="55" max-vertical-offset="720">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -801,9 +748,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1428662918000" expanded="true" signature="941:962" placeholder="SELECT COUNT..wpdb_comments..." />
-            <marker date="1428662918000" expanded="true" signature="1246:1304" placeholder="SELECT COUNT.._wpdb_links WHERE..." />
-            <marker date="1428662918000" expanded="true" signature="1716:1874" placeholder="SELECT MAX(p.._wpdb_posts WHERE..." />
+            <marker date="1428662918000" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..wpdb_comments..." />
+            <marker date="1428662918000" expanded="true" signature="-1:-1" placeholder="SELECT COUNT.._wpdb_links WHERE..." />
+            <marker date="1428662918000" expanded="true" signature="-1:-1" placeholder="SELECT MAX(p.._wpdb_posts WHERE..." />
           </folding>
         </state>
       </provider>
@@ -813,8 +760,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1350">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1428662917000" expanded="true" signature="822:871" placeholder="SELECT * FRO.._wpdb_links ORDER..." />
-            <marker date="1428662917000" expanded="true" signature="925:981" placeholder="SELECT * FRO.._wpdb_links ORDER..." />
+            <marker date="1428662917000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO.._wpdb_links ORDER..." />
+            <marker date="1428662917000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO.._wpdb_links ORDER..." />
           </folding>
         </state>
       </provider>
@@ -829,7 +776,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/widgets/tin-creditsrank.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.875" vertical-offset="0" max-vertical-offset="1035">
+        <state vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="1035">
           <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
           <folding />
         </state>
@@ -855,13 +802,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.1496816" vertical-offset="0" max-vertical-offset="2625">
           <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.583334" vertical-offset="30202" max-vertical-offset="31980">
+        <state vertical-scroll-proportion="0.0" vertical-offset="30202" max-vertical-offset="31980">
           <caret line="2053" column="0" selection-start-line="2053" selection-start-column="0" selection-end-line="2053" selection-end-column="0" />
           <folding>
             <marker date="1428672464000" expanded="false" signature="23944:24071" placeholder="..." />
@@ -882,43 +828,104 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/widgets/tin-tabs.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.25" vertical-offset="4071" max-vertical-offset="6315">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4071" max-vertical-offset="6315">
           <caret line="283" column="8" selection-start-line="283" selection-start-column="8" selection-end-line="286" selection-end-column="12" />
           <folding>
             <element signature="e#6#224#0#PHP" expanded="true" />
-            <element signature="e#13381#13423#0#HTML" expanded="true" />
-            <element signature="e#13532#13550#0#HTML" expanded="true" />
-            <element signature="e#13765#13808#0#HTML" expanded="true" />
-            <element signature="e#15222#15264#0#HTML" expanded="true" />
-            <element signature="e#15374#15392#0#HTML" expanded="true" />
-            <element signature="e#15610#15653#0#HTML" expanded="true" />
-            <element signature="e#15956#15983#0#HTML" expanded="true" />
-            <element signature="e#15995#16038#0#HTML" expanded="true" />
-            <element signature="e#16153#16173#0#HTML" expanded="true" />
-            <element signature="e#18093#18135#0#HTML" expanded="true" />
-            <element signature="e#18247#18265#0#HTML" expanded="true" />
-            <element signature="e#18475#18502#0#HTML" expanded="true" />
-            <element signature="e#18514#18557#0#HTML" expanded="true" />
-            <element signature="e#18668#18688#0#HTML" expanded="true" />
-            <element signature="e#19147#19189#0#HTML" expanded="true" />
-            <element signature="e#19314#19332#0#HTML" expanded="true" />
-            <element signature="e#19536#19578#0#HTML" expanded="true" />
-            <element signature="e#19704#19722#0#HTML" expanded="true" />
-            <element signature="e#19929#19971#0#HTML" expanded="true" />
-            <element signature="e#20098#20116#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/widgets/tin-tabs-h.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20465116" vertical-offset="3902" max-vertical-offset="4770">
+        <state vertical-scroll-proportion="1.5416666" vertical-offset="4027" max-vertical-offset="4770">
           <caret line="279" column="0" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
           <folding>
             <element signature="e#6#224#0#PHP" expanded="true" />
             <element signature="n#_create_tabs#0;n#TinTabsh#0;n#!!top" expanded="false" />
-            <element signature="e#16598#16640#0#HTML" expanded="true" />
-            <element signature="e#16765#16783#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="14775" max-vertical-offset="28065">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/index-cms.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1785">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+          <folding>
+            <element signature="e#6#395#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/comments-ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-35.625" vertical-offset="1185" max-vertical-offset="2160">
+          <caret line="147" column="14" selection-start-line="147" selection-start-column="14" selection-end-line="147" selection-end-column="14" />
+          <folding>
+            <marker date="1428662909000" expanded="true" signature="801:867" placeholder="SELECT post_.._wpdb_posts WHERE..." />
+            <marker date="1428662909000" expanded="true" signature="3234:3356" placeholder="SELECT comme.._wpdb_comments WHERE..." />
+            <marker date="1428662909000" expanded="true" signature="3634:3739" placeholder="SELECT comme.._wpdb_comments WHERE..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="2400">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <marker date="1428752985000" expanded="true" signature="949:1102" placeholder="..." />
+            <marker date="1428752985000" expanded="true" signature="994:1011" placeholder="..." />
+            <marker date="1428752985000" expanded="true" signature="1012:1077" placeholder="..." />
+            <marker date="1428752985000" expanded="true" signature="1576:1643" placeholder="..." />
+            <marker date="1428752985000" expanded="true" signature="1601:1643" placeholder="..." />
+            <marker date="1428752985000" expanded="true" signature="2005:2057" placeholder="..." />
+            <marker date="1428752985000" expanded="true" signature="2030:2057" placeholder="..." />
+            <marker date="1428752985000" expanded="false" signature="2471:2483" placeholder="..." />
+            <marker date="1428752985000" expanded="true" signature="2713:2744" placeholder="..." />
+            <marker date="1428752985000" expanded="true" signature="4492:4632" placeholder="..." />
+            <marker date="1428752985000" expanded="true" signature="4964:5046" placeholder="..." />
+            <marker date="1428752985000" expanded="true" signature="4993:5046" placeholder="{...}" />
+            <marker date="1428752985000" expanded="true" signature="6214:6307" placeholder="SELECT COUNT.._wpdb_comments  WHERE..." />
+            <marker date="1428752985000" expanded="true" signature="6214:6391" placeholder="SELECT COUNT.._wpdb_comments  WHERE..." />
+            <marker date="1428752985000" expanded="true" signature="6674:6767" placeholder="SELECT COUNT.._wpdb_comments  WHERE..." />
+            <marker date="1428752985000" expanded="true" signature="6674:6852" placeholder="SELECT COUNT.._wpdb_comments  WHERE..." />
+            <marker date="1428752985000" expanded="true" signature="7013:7045" placeholder="..." />
+            <marker date="1428752985000" expanded="true" signature="7304:7336" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.06989247" vertical-offset="667" max-vertical-offset="5295">
+          <caret line="41" column="150" selection-start-line="41" selection-start-column="150" selection-end-line="41" selection-end-column="150" />
+          <folding>
+            <element signature="e#6#390#0#PHP" expanded="true" />
+            <element signature="e#2297#2370#0#HTML" expanded="true" />
+            <element signature="e#3188#3210#0#HTML" expanded="true" />
+            <element signature="e#7361#7434#0#HTML" expanded="true" />
+            <element signature="e#8337#8359#0#HTML" expanded="true" />
+            <element signature="e#12366#12385#0#HTML" expanded="true" />
+            <element signature="e#12915#12988#0#HTML" expanded="true" />
+            <marker date="1428752579000" expanded="true" signature="1173:1358" placeholder="SELECT COUNT.._wpdb_comments WHERE..." />
+            <marker date="1428752579000" expanded="true" signature="1914:1963" placeholder="..." />
+            <marker date="1428752579000" expanded="true" signature="2036:2099" placeholder="..." />
+            <marker date="1428752579000" expanded="true" signature="6173:6356" placeholder="SELECT COUNT.._wpdb_comments WHERE..." />
+            <marker date="1428752579000" expanded="true" signature="11521:11709" placeholder="SELECT COUNT.._wpdb_comments WHERE..." />
+            <marker date="1428752579000" expanded="true" signature="15595:15640" placeholder="..." />
+            <marker date="1428752579000" expanded="true" signature="15924:16038" placeholder="SELECT COUNT.._wpdb_comments WHERE..." />
           </folding>
         </state>
       </provider>

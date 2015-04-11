@@ -24,7 +24,7 @@
 ?>
 <?php if ('open' == $post->comment_status) : ?>
 <div id="respond_box">
-	<div style="margin:8px 0 8px 0"><h3 class="multi-border-hl"><span><?php _e('发表评论，标准评论必须符合500字以上才有资格被评选为最佳书评！加油哦！','tinection'); ?></span></h3></div>
+	<div style="margin:8px 0 8px 0"><h3 class="multi-border-hl"><span><?php _e('写下“标准书评”或者“简短小评”发表您的看法，注：标准评语需要满足规定字数以上，加油哦！','tinection'); ?></span></h3></div>
 	<div id="respond">
 		<div class="cancel-comment-reply" style="margin-bottom:5px">
 
@@ -137,12 +137,12 @@
 	<div class="commenttitle">
         <a href="#normal_comments">
             <span id="comments" class="active"><i class="fa fa-comments-o"></i>
-                <?php $count_comments = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->comments  WHERE comment_approved='1' AND comment_post_ID = %d AND length(comment_content) > 200 AND comment_type not in ('trackback','pingback')", $post->ID ) ); echo $count_comments; _e(' 标准评语 ','tinection'); ?>
+                <?php $count_comments = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->comments  WHERE comment_approved='1' AND comment_post_ID = %d AND char_length(comment_content) > 200 AND comment_type not in ('trackback','pingback')", $post->ID ) ); /*echo $count_comments;*/ _e(' 标准评语 ','tinection'); ?>
             </span>
         </a>
         <a href="#quote_comments">
-            <span id="comments_quote"><i class="fa fa-comments-o"></i>
-                <?php $count_comments = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->comments  WHERE comment_approved='1' AND comment_post_ID = %d AND length(comment_content) <= 200 AND comment_type not in ('trackback','pingback')", $post->ID ) ); echo $count_comments; _e(' 简短小评','tinection'); ?>
+            <span id="comments_quote"><i class="fa fa-bullhorn"></i>
+                <?php $count_comments = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->comments  WHERE comment_approved='1' AND comment_post_ID = %d AND char_length(comment_content) <= 200 AND comment_type not in ('trackback','pingback')", $post->ID ) ); /*echo $count_comments; */_e(' 简短小评','tinection'); ?>
             </span>
         </a>
     </div>
