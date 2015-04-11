@@ -24,7 +24,7 @@
 ?>
 <?php if ('open' == $post->comment_status) : ?>
 <div id="respond_box">
-	<div style="margin:8px 0 8px 0"><h3 class="multi-border-hl"><span><?php _e('写下“标准书评”或者“简短小评”发表您的看法，注：标准评语需要满足规定字数以上，加油哦！','tinection'); ?></span></h3></div>
+	<div style="margin:8px 0 8px 0"><h3 class="multi-border-hl"><span><?php _e('写下“标准评语”或者“简短小评”发表您的看法，注：标准评语需要满足规定字数以上。','tinection'); ?></span></h3></div>
 	<div id="respond">
 		<div class="cancel-comment-reply" style="margin-bottom:5px">
 
